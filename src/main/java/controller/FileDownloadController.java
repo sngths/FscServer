@@ -27,11 +27,11 @@ public class FileDownloadController {
         System.out.println("请求图片:" + imageName);
         response.setContentType(MediaType.IMAGE_JPEG_VALUE);
 
-        File file = new File("/Users/tianxing/Desktop/WB121712_8.jpg");
+        File file = new File("/home/pi/upload/Temp/WB121712_8.jpg");
         response.setContentLengthLong(file.length());
         try {
             response.getOutputStream().write(Files.readAllBytes(file.toPath()));
-            //response.getOutputStream().close();
+            response.getOutputStream().close();
         } catch (IOException e) {
             e.printStackTrace();
         }

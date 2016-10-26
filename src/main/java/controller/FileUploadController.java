@@ -31,7 +31,7 @@ public class FileUploadController {
 
 
     /**
-     * 文件上传
+     * 接收文件上传
      * */
     @RequestMapping(value="upload", method = RequestMethod.POST, consumes = "multipart/form-data")
     public Image handleFileUpload(@RequestParam("file") MultipartFile file) throws IOException {
@@ -62,6 +62,15 @@ public class FileUploadController {
     }
 
 
+
+
+    /**
+     * 接收图片上上传
+     * */
+    @RequestMapping(value = "upload/image", method = RequestMethod.POST, consumes = "multipart/form-data")
+    public Image imageUpload(){
+        return null;
+    }
 
 
 
@@ -96,7 +105,6 @@ public class FileUploadController {
 //            //return "You failed to upload because the file was empty.";
 //        }
 //    }
-
 
 
 }
