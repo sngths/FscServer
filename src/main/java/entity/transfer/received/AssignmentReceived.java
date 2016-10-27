@@ -1,5 +1,9 @@
 package entity.transfer.received;
 
+import entity.assignemnt.Image;
+
+import java.util.List;
+
 /**
  * Created by tianxing on 16/10/26.
  * 从客户端收到的发布作业
@@ -9,7 +13,9 @@ public class AssignmentReceived {
     private String title = "";
 
     private String content = "";
-    private String image;
+    private List<Image> images;
+
+    private String classID;
 
 
     public String getTitle() {
@@ -20,7 +26,11 @@ public class AssignmentReceived {
         return content;
     }
 
-    public String getImage() {
-        return image;
+    public List<Image> getImages() {
+        return images;
+    }
+
+    public String getClassID() {
+        return classID;
     }
 }

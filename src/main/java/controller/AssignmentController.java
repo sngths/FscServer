@@ -1,6 +1,7 @@
 package controller;
 
 import entity.assignemnt.Assignment;
+import entity.transfer.received.AssignmentReceived;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -71,7 +72,7 @@ public class AssignmentController {
      */
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "assignment/upload", method = RequestMethod.POST, consumes = "application/json")
-    public void uploadAssignment(@RequestHeader(value = "token") String token, @RequestBody Assignment assignment) {
+    public void uploadAssignment(@RequestHeader(value = "token") String token, @RequestBody AssignmentReceived assignment) {
         System.out.println("接收到作业上传");
     }
 
