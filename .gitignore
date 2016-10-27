@@ -55,13 +55,13 @@ jxl.log
 jmx.log
 derby.log
 spring-test/test-output/
-.gradle
+.gradle/
 argfile*
 pom.xml
 activemq-data/
 
 classes/
-/build
+build/
 buildSrc/build
 /spring-*/build
 /src/asciidoc/build
@@ -75,7 +75,7 @@ spring-*/src/main/java/META-INF/MANIFEST.MF
 # IDEA artifacts and output dirs
 *.iml
 *.ipr
-*.iws
+/*.iws
 .idea
 out
 test-output

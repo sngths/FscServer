@@ -27,7 +27,7 @@ public class FileDownloadController {
         System.out.println("请求图片:" + imageName);
         response.setContentType(MediaType.IMAGE_JPEG_VALUE);
 
-        File file = new File("/home/pi/upload/Temp/WB121712_8.jpg");
+        File file = new File("/home/pi/upload/Image/" + imageName);
         response.setContentLengthLong(file.length());
         try {
             response.getOutputStream().write(Files.readAllBytes(file.toPath()));

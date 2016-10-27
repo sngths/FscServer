@@ -4,13 +4,11 @@ package entity.assignemnt;
  * Created by tianxing on 16/9/12.
  * 上传的图片信息
  */
-public class Image {
+public class Image extends FileUploaded{
 
-    private String name = "";
-    private String url = "";
 
-    private String date;
-    private String thumbnailUrl = "";
+
+    private String thumbnailUrl ;
 
     private Integer height ;
     private Integer width;
@@ -18,20 +16,9 @@ public class Image {
     private Integer thumbnailHeight ;
     private Integer thumbnailWidth;
 
-    private Long FileSize;
 
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
 
     public void setThumbnailUrl(String thumbnailUrl) {
         this.thumbnailUrl = thumbnailUrl;
@@ -53,21 +40,6 @@ public class Image {
         this.thumbnailWidth = thumbnailWidth;
     }
 
-    public void setFileSize(Long fileSize) {
-        FileSize = fileSize;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public String getDate() {
-        return date;
-    }
 
     public Integer getHeight() {
         return height;
@@ -83,10 +55,6 @@ public class Image {
 
     public Integer getWidth() {
         return width;
-    }
-
-    public Long getFileSize() {
-        return FileSize;
     }
 
     public String getThumbnailUrl() {

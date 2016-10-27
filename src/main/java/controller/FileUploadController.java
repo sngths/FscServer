@@ -2,6 +2,7 @@ package controller;
 
 
 import entity.assignemnt.Image;
+import org.apache.catalina.Server;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -39,7 +40,7 @@ public class FileUploadController {
         System.out.println("开始接收文件上传");
         if (!file.isEmpty()) {
             String name = UUID.randomUUID().toString().replace("-", "");
-            System.out.println(file.getName() + "  "  + file.getOriginalFilename() + "  " +file.getSize());
+            System.out.println("getName:" + file.getName() + "  getOriginalFilename:"  + file.getOriginalFilename() + "  " +file.getSize());
             if (file.getOriginalFilename() != null){
                 if (file.getOriginalFilename().contains(".")){
                     String stringArray[] = file.getOriginalFilename().split("\\.");
@@ -68,8 +69,40 @@ public class FileUploadController {
      * 接收图片上上传
      * */
     @RequestMapping(value = "upload/image", method = RequestMethod.POST, consumes = "multipart/form-data")
-    public Image imageUpload(){
-        return null;
+    public Image imageUpload(@RequestParam("image") MultipartFile file){
+        Image image = new Image();
+        String originalFilename = file.getOriginalFilename();
+        Long fileSize = file.getSize();
+        if (!file.isEmpty()) {
+            String name = UUID.randomUUID().toString().replace("-", "");
+
+            if (originalFilename != null){
+                if (originalFilename.contains(".")){
+                    String stringArray[] = file.getOriginalFilename().split("\\.");
+                    name = name.concat(".").concat(stringArray[stringArray.length -1]);
+                }
+            }
+            try {
+                file.transferTo(new File("/home/pi/upload/Image/".concat(name)));
+                image.setName(name);
+                image.setOriginalFilename(originalFilename);
+                image.setUrl(util.Server.getLoaclHost() + "/image/" + name);
+                image.setDate(util.Server.getDate());
+                image.setFileSize(fileSize);
+                //设置图片相关参数
+
+                return image;
+            } catch (Exception e) {
+
+                e.printStackTrace();
+                return null;
+                //return "You failed to upload " + name + " => " + e.getMessage();
+            }
+        } else {
+            return null;
+            //return "You failed to upload because the file was empty.";
+        }
+
     }
 
 
