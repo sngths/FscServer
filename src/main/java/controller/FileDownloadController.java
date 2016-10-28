@@ -21,13 +21,14 @@ public class FileDownloadController {
     /**
      * 图片下载
      * */
-    @RequestMapping(value = "image/{imageName}", method = RequestMethod.GET)
+    @RequestMapping(value = "image/{imageName:.+}", method = RequestMethod.GET)
     public void imgageDownload(@PathVariable(value = "imageName") String imageName, HttpServletRequest request, HttpServletResponse response){
         //response.addHeader("Content-Type", "image/jpeg");
-        System.out.println("请求图片:" + imageName);
+
         response.setContentType(MediaType.IMAGE_JPEG_VALUE);
 
         File file = new File("/home/pi/upload/Image/" + imageName);
+        System.out.println("请求图片:" + file.getAbsolutePath());
         response.setContentLengthLong(file.length());
         try {
             response.getOutputStream().write(Files.readAllBytes(file.toPath()));

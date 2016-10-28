@@ -37,6 +37,6 @@ public class Server {
      * 取得本机地址
      * */
     public static String getLoaclHost(){
-        return "172.24.1.1:8080";
+        return "http://172.24.1.1:8080";
     }
 }

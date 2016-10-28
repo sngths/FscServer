@@ -10,12 +10,11 @@ import java.util.List;
  */
 public class AssignmentReceived {
 
-    private String title = "";
+    private String title;
 
-    private String content = "";
-    private List<Image> images;
-
+    private String content;
     private String classID;
+    private List<Image> images;
 
 
     public String getTitle() {

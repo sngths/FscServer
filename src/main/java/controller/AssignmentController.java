@@ -1,21 +1,16 @@
 package controller;
 
+import data.AssignmentPool;
 import entity.assignemnt.Assignment;
 import entity.transfer.received.AssignmentReceived;
-import org.apache.shiro.SecurityUtils;
+import entity.transfer.send.AssignmentSend;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.authz.annotation.RequiresRoles;
-import org.apache.shiro.mgt.SecurityManager;
-import org.apache.shiro.session.Session;
-import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.web.bind.annotation.*;
-import redis.clients.jedis.Jedis;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +27,9 @@ public class AssignmentController {
     //@Autowired
     //private SecurityManager securityManager;
 
+    @Autowired
+    private AssignmentPool pool;
+
 
     /**
      * 请求单个班级的作业列表
@@ -44,7 +42,7 @@ public class AssignmentController {
     @RequiresAuthentication
     @RequiresRoles("guest")
     @RequestMapping(value = "assignment/list", method = RequestMethod.GET, consumes = "application/json")
-    public List<Assignment> getAssignmentList(@RequestHeader(value = "token") String token, @RequestParam(value = "classID") String classId, @RequestParam(value = "serialNumber") Long serialNumber) {
+    public List<AssignmentSend> getAssignmentList(@RequestHeader(value = "token") String token, @RequestParam(value = "classID") String classId, @RequestParam(value = "serialNumber") String serialNumber) {
         //根据token判断用户身份和登陆状态
         LOGGER.info("token= " + token);
         LOGGER.info("classID= " + classId);
@@ -55,14 +53,14 @@ public class AssignmentController {
 
         //LOGGER.info(String.valueOf(session.getId()));
         //LOGGER.info(String.valueOf(subject.isAuthenticated()));
-        ArrayList<Assignment> list = new ArrayList<>();
-        list.add(new Assignment());
-        list.add(new Assignment());
-        list.add(new Assignment());
-        list.add(new Assignment());
+//        ArrayList<AssignmentSend> list = new ArrayList<>();
+//        list.add(new AssignmentSend());
+//        list.add(new AssignmentSend());
+//        list.add(new AssignmentSend());
+//        list.add(new AssignmentSend());
 
 
-        return list;
+        return pool.getList(classId, serialNumber);
     }
 
 
@@ -74,6 +72,9 @@ public class AssignmentController {
     @RequestMapping(value = "assignment/upload", method = RequestMethod.POST, consumes = "application/json")
     public void uploadAssignment(@RequestHeader(value = "token") String token, @RequestBody AssignmentReceived assignment) {
         System.out.println("接收到作业上传");
+        //保存发布的作业
+        pool.save(assignment);
+
     }
 
 }
