@@ -1,4 +1,4 @@
-package entity.request;
+package entity.transfer.received;
 
 /**
  * Created by tianxing on 16/9/7.

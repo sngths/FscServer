@@ -8,7 +8,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * Created by tianxing on 16/10/28.
  * 处理客户端session
  */
-public class SessionManage {
+public class SessionManager {
 
     private Map<String, Session> sessions = new ConcurrentHashMap<>();
 

@@ -5,6 +5,8 @@ import controller.FileUploadController;
 import controller.FileDownloadController;
 import controller.TestController;
 import data.AssignmentPool;
+import data.account.AccountManager;
+import data.session.SessionManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -20,8 +22,21 @@ public class TeacherServiceConfig {
 
 
     @Bean
-    AssignmentPool assignmentPool(){
+    public AssignmentPool assignmentPool(){
         return new AssignmentPool();
     }
+
+
+    @Bean
+    public AccountManager accountManager(){
+        return new AccountManager();
+    }
+
+
+    @Bean
+    public SessionManager sessionManager(){
+        return new SessionManager();
+    }
+
 
 }

@@ -1,6 +1,6 @@
 package controller;
 
-import entity.request.UsernameAndPassword;
+import entity.transfer.received.UsernameAndPassword;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;

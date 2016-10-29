@@ -1,4 +1,4 @@
-package entity.transfer.send;
+package entity.transfer.response;
 
 import entity.info.*;
 

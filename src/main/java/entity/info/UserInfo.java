@@ -2,6 +2,7 @@ package entity.info;
 
 /**
  * Created by tianxing on 16/8/31.
+ *
  */
 public class UserInfo {
 

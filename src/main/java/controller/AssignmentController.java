@@ -1,9 +1,8 @@
 package controller;
 
 import data.AssignmentPool;
-import entity.assignemnt.Assignment;
 import entity.transfer.received.AssignmentReceived;
-import entity.transfer.send.AssignmentSend;
+import entity.transfer.response.AssignmentSend;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.slf4j.Logger;
@@ -12,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

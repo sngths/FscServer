@@ -1,8 +1,7 @@
 package data;
 
-import entity.assignemnt.Assignment;
 import entity.transfer.received.AssignmentReceived;
-import entity.transfer.send.AssignmentSend;
+import entity.transfer.response.AssignmentSend;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import util.Server;

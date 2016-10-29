@@ -17,6 +17,34 @@ public class XmppServerInfo {
     private String username = "user1";
     private String password = "123456";
 
+    public void setServiceName(String serviceName) {
+        this.serviceName = serviceName;
+    }
+
+    public void setHost(String host) {
+        this.host = host;
+    }
+
+    public void setPort(Integer port) {
+        this.port = port;
+    }
+
+    public void setResource(String resource) {
+        this.resource = resource;
+    }
+
+    public void setRoomServiceName(String roomServiceName) {
+        this.roomServiceName = roomServiceName;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getServiceName() {
         return serviceName;
     }
