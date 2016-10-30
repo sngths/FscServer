@@ -40,7 +40,7 @@ public class FileUploadController {
         System.out.println("开始接收文件上传");
         if (!file.isEmpty()) {
             String name = UUID.randomUUID().toString().replace("-", "");
-            System.out.println("getName:" + file.getName() + "  getOriginalFilename:"  + file.getOriginalFilename() + "  " +file.getSize());
+            System.out.println("getId:" + file.getName() + "  getOriginalFilename:"  + file.getOriginalFilename() + "  " +file.getSize());
             if (file.getOriginalFilename() != null){
                 if (file.getOriginalFilename().contains(".")){
                     String stringArray[] = file.getOriginalFilename().split("\\.");

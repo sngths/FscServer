@@ -10,7 +10,7 @@ import java.util.Date;
  */
 public class Server {
 
-    private static SimpleDateFormat simpleDateFormat = new SimpleDateFormat ("E yyyy.MM.dd 'at' hh:mm:ss a zzz");
+    private static SimpleDateFormat simpleDateFormat = new SimpleDateFormat ("E yyyy.MM.dd hh:mm:ss a zzz");
 
     /**
      * 取得当前服务器时间

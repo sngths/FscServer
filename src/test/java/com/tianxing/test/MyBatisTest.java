@@ -1,11 +1,4 @@
-package com.tianxing.redisTest;
-
-import org.apache.ibatis.datasource.pooled.PooledDataSource;
-import org.apache.ibatis.mapping.Environment;
-import org.apache.ibatis.session.Configuration;
-import org.apache.ibatis.transaction.TransactionFactory;
-import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
-import org.junit.Test;
+package com.tianxing.test;
 
 /**
  * Created by tianxing on 16/10/18.

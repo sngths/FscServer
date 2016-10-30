@@ -3,21 +3,21 @@
     <!--引入外部配置文件-->
     <properties resource="jdbc.properties">
         <!--配置属性-->
-        <property name="driver" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/mybatis"/>
-        <property name="username" value="root"/>
-        <property name="password" value="password"/>
+        <property id="driver" value="com.mysql.jdbc.Driver"/>
+        <property id="url" value="jdbc:mysql://localhost:3306/mybatis"/>
+        <property id="username" value="root"/>
+        <property id="password" value="password"/>
 
     </properties>
     <!--设置-->
     <settings>
-        <setting name="cacheEnabled" value="true"/>
+        <setting id="cacheEnabled" value="true"/>
     </settings>
     <!--定义类别名-->
     <typeAliases>
         <typeAlias alias="user" type="mybatis.pojo.User"/>
         <!--自动扫描-->
-        <package name="mybatis.pojo"/>
+        <package id="mybatis.pojo"/>
     </typeAliases>
 
     <!--default标明默认启用哪个数据源配置-->
@@ -25,13 +25,13 @@
         <!--可配置多个数据源-->
         <environment id="development">
             <transactionManager type="JDBC">
-                <property name="autoCommit" value="false"/>
+                <property id="autoCommit" value="false"/>
             </transactionManager>
             <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://10.130.131.27:3306/mybatis"/>
-                <property name="username" value="root"/>
-                <property name="password" value="password"/>
+                <property id="driver" value="com.mysql.jdbc.Driver"/>
+                <property id="url" value="jdbc:mysql://10.130.131.27:3306/mybatis"/>
+                <property id="username" value="root"/>
+                <property id="password" value="password"/>
             </dataSource>
         </environment>
     </environments>

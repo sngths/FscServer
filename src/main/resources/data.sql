@@ -1,2 +1,2 @@
-INSERT INTO `Users` (`user_id`,`name`) VALUES (null,'nick');
-INSERT INTO `Users` (`user_id`,`name`) VALUES (null,'george');
+INSERT INTO `Users` (`user_id`,`id`) VALUES (null,'nick');
+INSERT INTO `Users` (`user_id`,`id`) VALUES (null,'george');

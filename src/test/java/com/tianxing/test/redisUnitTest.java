@@ -1,6 +1,5 @@
-package com.tianxing.redisTest;
+package com.tianxing.test;
 
-import org.junit.Test;
 import redis.clients.jedis.Jedis;
 
 /**

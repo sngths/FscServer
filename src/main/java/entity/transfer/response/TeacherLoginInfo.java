@@ -29,8 +29,8 @@ public class TeacherLoginInfo {
     public TeacherLoginInfo(){
         //构造时写入一些数据
         GroupInfo groupInfo = new GroupInfo();
-        groupInfo.setRoomName("c1g1");
-        groupInfo.setRoomTitle("一年级一班");
+        groupInfo.setRoomID("c1g1");
+        groupInfo.setRoomName("一年级一班");
         groups.add(groupInfo);
         friends.add(UserInfo.newInstance("user1"));
         friends.add(UserInfo.newInstance("user2"));
@@ -39,14 +39,14 @@ public class TeacherLoginInfo {
         friends.add(UserInfo.newInstance("user5"));
 
         ClassInfo classInfo1 = new ClassInfo();
-        classInfo1.setName("c1g1");
-        classInfo1.setTitle("一年级一班");
+        classInfo1.setId("c1g1");
+        classInfo1.setName("一年级一班");
         ClassInfo classInfo2 = new ClassInfo();
-        classInfo2.setName("c1g2");
-        classInfo2.setTitle("一年级二班");
+        classInfo2.setId("c1g2");
+        classInfo2.setName("一年级二班");
         ClassInfo classInfo3 = new ClassInfo();
-        classInfo3.setName("c1g3");
-        classInfo3.setTitle("一年级三班");
+        classInfo3.setId("c1g3");
+        classInfo3.setName("一年级三班");
         StudentInfo student6 = new StudentInfo();
         StudentInfo student7 = new StudentInfo();
         StudentInfo student8 = new StudentInfo();
@@ -62,11 +62,11 @@ public class TeacherLoginInfo {
         student9.setNickName("用户9");
         student10.setUserName("user10");
         student10.setNickName("用户10");
-        classInfo1.addStudentInfo(student6);
-        classInfo1.addStudentInfo(student7);
-        classInfo1.addStudentInfo(student8);
-        classInfo1.addStudentInfo(student9);
-        classInfo1.addStudentInfo(student10);
+        //classInfo1.addStudentInfo(student6);
+        //classInfo1.addStudentInfo(student7);
+        //classInfo1.addStudentInfo(student8);
+        //classInfo1.addStudentInfo(student9);
+        //classInfo1.addStudentInfo(student10);
         classes.add(classInfo1);
         classes.add(classInfo2);
         classes.add(classInfo3);

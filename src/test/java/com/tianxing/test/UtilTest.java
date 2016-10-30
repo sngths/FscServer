@@ -1,4 +1,4 @@
-package com.tianxing.redisTest;
+package com.tianxing.test;
 
 import org.junit.Test;
 import org.slf4j.Logger;

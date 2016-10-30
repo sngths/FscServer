@@ -1,4 +1,4 @@
-package com.tianxing.redisTest;
+package com.tianxing.test;
 
 /**
  * Created by tianxing on 16/10/5.
