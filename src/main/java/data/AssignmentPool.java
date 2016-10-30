@@ -49,6 +49,7 @@ public class AssignmentPool {
         assignment.setImages(assignmentReceived.getImages());
 
         logger.info("保存一条作业:" + assignment.getClassID() + "作业条数:" + String.valueOf(assignmentList.size()));
+        logger.info("设置日期:" + assignment.getDate());
         assignmentList.add(assignment);
     }
 

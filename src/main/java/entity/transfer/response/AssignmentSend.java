@@ -2,6 +2,7 @@ package entity.transfer.response;
 
 import entity.assignemnt.Image;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,17 +11,17 @@ import java.util.List;
 public class AssignmentSend {
 
 
-    private String serialNumber = "";
-    private String teacherName = "";
-    private String className = "";
+    private String serialNumber;
+    private String teacherName;
+    private String className;
     private String classID;
 
 
 
 
     //作业信息
-    private String title = "";
-    private String date = "";
+    private String title;
+    private String date;
     private String content;
     private List<Image> images;
 
@@ -77,7 +78,12 @@ public class AssignmentSend {
     }
 
     public void setImages(List<Image> images) {
-        this.images = images;
+        if (images == null){
+            this.images = new ArrayList<>();
+        }else {
+            this.images = images;
+        }
+
     }
 
     public String getClassID() {
