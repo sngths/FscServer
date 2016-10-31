@@ -1,6 +1,8 @@
 package controller;
 
 import data.AssignmentPool;
+import data.session.Session;
+import data.session.SessionManager;
 import entity.transfer.received.AssignmentReceived;
 import entity.transfer.response.AssignmentSend;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
@@ -20,13 +22,16 @@ import java.util.List;
 @RestController
 public class AssignmentController {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(AssignmentController.class);
+    private  final Logger logger = LoggerFactory.getLogger(AssignmentController.class);
 
     //@Autowired
     //private SecurityManager securityManager;
 
     @Autowired
     private AssignmentPool pool;
+
+    @Autowired
+    private SessionManager sessionManager;
 
 
     /**
@@ -42,15 +47,15 @@ public class AssignmentController {
     @RequestMapping(value = "assignment/list", method = RequestMethod.GET, consumes = "application/json")
     public List<AssignmentSend> getAssignmentList(@RequestHeader(value = "token") String token, @RequestParam(value = "classID") String classId, @RequestParam(value = "serialNumber") String serialNumber) {
         //根据token判断用户身份和登陆状态
-        LOGGER.info("token= " + token);
-        LOGGER.info("classID= " + classId);
-        LOGGER.info("serialNumber= " + serialNumber);
+        logger.info("token= " + token);
+        logger.info("classID= " + classId);
+        logger.info("serialNumber= " + serialNumber);
 
         //Subject subject = SecurityUtils.getSubject();
         //Session session = subject.getSession();
 
-        //LOGGER.info(String.valueOf(session.getId()));
-        //LOGGER.info(String.valueOf(subject.isAuthenticated()));
+        //logger.info(String.valueOf(session.getId()));
+        //logger.info(String.valueOf(subject.isAuthenticated()));
 //        ArrayList<AssignmentSend> list = new ArrayList<>();
 //        list.add(new AssignmentSend());
 //        list.add(new AssignmentSend());
@@ -71,7 +76,12 @@ public class AssignmentController {
     public void uploadAssignment(@RequestHeader(value = "token") String token, @RequestBody AssignmentReceived assignment) {
         System.out.println("接收到作业上传");
         //保存发布的作业
-        pool.save(assignment);
+        Session session = sessionManager.getSession(token);
+        if (session == null){
+            return;
+        }
+        logger.info("取得session  用户名:".concat(session.getUserName()).concat("  token:").concat(session.getId()));
+        pool.save(assignment, session.getUserName());
 
     }
 

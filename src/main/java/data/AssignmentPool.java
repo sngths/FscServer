@@ -1,9 +1,11 @@
 package data;
 
+import data.account.AccountManager;
 import entity.transfer.received.AssignmentReceived;
 import entity.transfer.response.AssignmentSend;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import util.Server;
 
 import java.util.ArrayList;
@@ -19,6 +21,8 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class AssignmentPool {
 
     Logger logger = LoggerFactory.getLogger(AssignmentPool.class);
+    @Autowired
+    private AccountManager accountManager;
 
     private Map<String, CopyOnWriteArrayList<AssignmentSend>> pool = new ConcurrentHashMap<>();
 
@@ -27,7 +31,7 @@ public class AssignmentPool {
     /**
      * 保存一条作业
      * */
-    public void save(AssignmentReceived assignmentReceived){
+    public void save(AssignmentReceived assignmentReceived, String teacherID){
         //找到对应班级列表
         CopyOnWriteArrayList<AssignmentSend> assignmentList = pool.get(assignmentReceived.getClassID());
         if (assignmentList == null){
@@ -36,11 +40,10 @@ public class AssignmentPool {
             pool.put(assignmentReceived.getClassID(), assignmentList);
         }
 
-
         AssignmentSend assignment = new AssignmentSend();
         assignment.setSerialNumber(String.valueOf(assignmentList.size()));
-        assignment.setTeacherName("");
-        assignment.setClassName("");
+        assignment.setTeacherName(accountManager.getTeacherInfoMap().get(teacherID).getNickName());
+        assignment.setClassName(accountManager.getClassInfoMap().get(assignmentReceived.getClassID()).getName());
         assignment.setClassID(assignmentReceived.getClassID());
 
         assignment.setTitle(assignmentReceived.getTitle());
