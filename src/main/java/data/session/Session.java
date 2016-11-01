@@ -5,9 +5,20 @@ package data.session;
  *
  */
 public class Session {
+    public static enum TYPE{student,teacher};
 
     private String id;
     private String userName;
+
+    public TYPE getType() {
+        return type;
+    }
+
+    public void setType(TYPE type) {
+        this.type = type;
+    }
+
+    private TYPE type;
 
 
     public String getId() {

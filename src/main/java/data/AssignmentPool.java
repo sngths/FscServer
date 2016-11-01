@@ -41,7 +41,7 @@ public class AssignmentPool {
         }
 
         AssignmentSend assignment = new AssignmentSend();
-        assignment.setSerialNumber(String.valueOf(assignmentList.size()));
+        assignment.setId(String.valueOf(assignmentList.size()));
         assignment.setTeacherName(accountManager.getTeacherInfoMap().get(teacherID).getNickName());
         assignment.setClassName(accountManager.getClassInfoMap().get(assignmentReceived.getClassID()).getName());
         assignment.setClassID(assignmentReceived.getClassID());

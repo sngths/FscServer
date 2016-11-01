@@ -1,8 +1,10 @@
 package controller;
 
 import data.AssignmentPool;
+import data.account.AccountManager;
 import data.session.Session;
 import data.session.SessionManager;
+import entity.info.StudentInfo;
 import entity.transfer.received.AssignmentReceived;
 import entity.transfer.response.AssignmentSend;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
@@ -31,6 +33,9 @@ public class AssignmentController {
     private AssignmentPool pool;
 
     @Autowired
+    private AccountManager manager;
+
+    @Autowired
     private SessionManager sessionManager;
 
 
@@ -42,8 +47,8 @@ public class AssignmentController {
      * @param serialNumber 请求时附带的最大序列号 根据这个序列号确定消息顺序
      *
      */
-    @RequiresAuthentication
-    @RequiresRoles("guest")
+    //@RequiresAuthentication
+    //@RequiresRoles("guest")
     @RequestMapping(value = "assignment/list", method = RequestMethod.GET, consumes = "application/json")
     public List<AssignmentSend> getAssignmentList(@RequestHeader(value = "token") String token, @RequestParam(value = "classID") String classId, @RequestParam(value = "serialNumber") String serialNumber) {
         //根据token判断用户身份和登陆状态
@@ -84,5 +89,42 @@ public class AssignmentController {
         pool.save(assignment, session.getUserName());
 
     }
+
+
+    /**
+     * 老师请求一条作业的回复学生列表
+     * */
+    @RequestMapping(value = "reply/list", method = RequestMethod.GET, consumes = "application/json")
+    public List<StudentInfo> getReplyStudentList(@RequestHeader(value = "token") String token, @RequestParam(value = "AssignmentID") String assignmentID){
+        Session session = sessionManager.getSession(token);
+        return null;
+    }
+
+
+    /**
+     * 请求一条作业回复
+     * */
+    @RequestMapping(value = "reply", method = RequestMethod.GET, consumes = "application/json")
+    public List<StudentInfo> getReply(@RequestHeader(value = "token") String token, @RequestParam(value = "AssignmentID") String assignmentID){
+        Session session = sessionManager.getSession(token);
+        return null;
+
+    }
+
+
+
+    /**
+     * 学生回复一条作业
+     * */
+    @RequestMapping(value = "reply/upload", method = RequestMethod.GET, consumes = "application/json")
+    public List<StudentInfo> uploadReply(@RequestHeader(value = "token") String token, @RequestParam(value = "AssignmentID") String assignmentID){
+        Session session = sessionManager.getSession(token);
+        return null;
+    }
+
+    /**
+     * 学生请求一条作业的回复
+     * */
+
 
 }

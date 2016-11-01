@@ -2,28 +2,26 @@ package entity.transfer.response;
 
 import entity.assignemnt.Image;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by tianxing on 16/10/26.
+ * Created by tianxing on 16/11/1.
+ * 返回给客户端的一条作业回复
  */
-public class AssignmentSend {
-
-
+public class ReplySend {
     private String id;
-    private String teacherName;
-    private String className;
+    private String assignemntID;
     private String classID;
+    private String studentID;
+    private String teacherID;
 
 
-
-
-    //作业信息
+    //回复内容
     private String title;
     private String date;
     private String content;
     private List<Image> images;
+
 
     public String getId() {
         return id;
@@ -33,20 +31,36 @@ public class AssignmentSend {
         this.id = id;
     }
 
-    public String getTeacherName() {
-        return teacherName;
+    public String getAssignemntID() {
+        return assignemntID;
     }
 
-    public void setTeacherName(String teacherName) {
-        this.teacherName = teacherName;
+    public void setAssignemntID(String assignemntID) {
+        this.assignemntID = assignemntID;
     }
 
-    public String getClassName() {
-        return className;
+    public String getClassID() {
+        return classID;
     }
 
-    public void setClassName(String className) {
-        this.className = className;
+    public void setClassID(String classID) {
+        this.classID = classID;
+    }
+
+    public String getStudentID() {
+        return studentID;
+    }
+
+    public void setStudentID(String studentID) {
+        this.studentID = studentID;
+    }
+
+    public String getTeacherID() {
+        return teacherID;
+    }
+
+    public void setTeacherID(String teacherID) {
+        this.teacherID = teacherID;
     }
 
     public String getTitle() {
@@ -78,21 +92,6 @@ public class AssignmentSend {
     }
 
     public void setImages(List<Image> images) {
-        if (images == null){
-            this.images = new ArrayList<>();
-        }else {
-            this.images = images;
-        }
-
+        this.images = images;
     }
-
-    public String getClassID() {
-        return classID;
-    }
-
-    public void setClassID(String classID) {
-        this.classID = classID;
-    }
-
-
 }
