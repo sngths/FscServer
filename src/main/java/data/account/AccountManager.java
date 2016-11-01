@@ -65,13 +65,14 @@ public class AccountManager {
      * 老师用户登陆 返回老师用户信息
      */
     public TeacherInfoResponse getTeacherInfoResponse(String username) {
-        TeacherInfoResponse info = new TeacherInfoResponse();
+        TeacherInfoResponse response = new TeacherInfoResponse();
         TeacherInfo teacherInfo = teacherInfoMap.get(username);
-        info.setTeacherInfo(teacherInfo);
+        response.setTeacherInfo(teacherInfo);
+        //添加班级信息列表
         for (String classID:teacherInfo.getClassIDs()) {
-            info.add(classInfoMap.get(classID));
+            response.add(classInfoMap.get(classID));
         }
-        return info;
+        return response;
     }
 
 
@@ -79,7 +80,10 @@ public class AccountManager {
      * 学生用户登录 返回学生用户信息
      */
     public StudentInfoResponse getStudentInfoResponse(String username) {
-        return null;
+        StudentInfoResponse response = new StudentInfoResponse();
+        response.setStudentInfo(studentInfoMap.get(username));
+        response.setClassInfo(classInfoMap.get(studentInfoMap.get(username).getClassID()));
+        return response;
     }
 
 

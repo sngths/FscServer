@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * Created by tianxing on 16/10/29.
- *
+ * 老师用户登录成功后 获取的个人相关数据
  */
 public class TeacherInfoResponse {
 
