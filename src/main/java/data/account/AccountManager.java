@@ -88,6 +88,23 @@ public class AccountManager {
 
 
 
+
+    /**
+     * 根据学生ID取得学生信息
+     * */
+    public StudentInfo getStudentInfo(String studentID){
+        return studentInfoMap.get(studentID);
+    }
+
+    /**
+     * 根据老师ID取得老师信息
+     * */
+    public TeacherInfo getTeacherInfo(String teacherID){
+        return teacherInfoMap.get(teacherID);
+    }
+
+
+
     /**
      * 构建一些用户 班级
      * 课程信息: 语文 数学 英语 三种课程类型

@@ -10,8 +10,7 @@ import java.util.List;
  */
 public class ReplySend {
     private String id;
-    private String assignemntID;
-    private String classID;
+    private String assignmentID;
     private String studentID;
     private String teacherID;
 
@@ -31,20 +30,12 @@ public class ReplySend {
         this.id = id;
     }
 
-    public String getAssignemntID() {
-        return assignemntID;
+    public String getAssignmentID() {
+        return assignmentID;
     }
 
-    public void setAssignemntID(String assignemntID) {
-        this.assignemntID = assignemntID;
-    }
-
-    public String getClassID() {
-        return classID;
-    }
-
-    public void setClassID(String classID) {
-        this.classID = classID;
+    public void setAssignmentID(String assignmentID) {
+        this.assignmentID = assignmentID;
     }
 
     public String getStudentID() {

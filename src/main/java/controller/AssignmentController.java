@@ -6,9 +6,9 @@ import data.session.Session;
 import data.session.SessionManager;
 import entity.info.StudentInfo;
 import entity.transfer.received.AssignmentReceived;
+import entity.transfer.received.ReplyReceived;
 import entity.transfer.response.AssignmentSend;
-import org.apache.shiro.authz.annotation.RequiresAuthentication;
-import org.apache.shiro.authz.annotation.RequiresRoles;
+import entity.transfer.response.ReplySend;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -86,7 +86,7 @@ public class AssignmentController {
             return;
         }
         logger.info("取得session  用户名:".concat(session.getUserName()).concat("  token:").concat(session.getId()));
-        pool.save(assignment, session.getUserName());
+        pool.saveAssignment(assignment, session.getUserName());
 
     }
 
@@ -97,7 +97,8 @@ public class AssignmentController {
     @RequestMapping(value = "reply/list", method = RequestMethod.GET, consumes = "application/json")
     public List<StudentInfo> getReplyStudentList(@RequestHeader(value = "token") String token, @RequestParam(value = "AssignmentID") String assignmentID){
         Session session = sessionManager.getSession(token);
-        return null;
+        logger.info("老师请求回复学生列表  assignmentID:" + assignmentID);
+        return pool.getReplyStudentList(assignmentID);
     }
 
 
@@ -105,9 +106,10 @@ public class AssignmentController {
      * 请求一条作业回复
      * */
     @RequestMapping(value = "reply", method = RequestMethod.GET, consumes = "application/json")
-    public List<StudentInfo> getReply(@RequestHeader(value = "token") String token, @RequestParam(value = "AssignmentID") String assignmentID){
+    public ReplySend getReply(@RequestHeader(value = "token") String token, @RequestParam(value = "AssignmentID") String assignmentID, @RequestParam(value = "StudentID") String studentID){
         Session session = sessionManager.getSession(token);
-        return null;
+        logger.info("请求一条作业回复  assignmentID:" + assignmentID + "   studentID:" + studentID);
+        return pool.getReply(assignmentID, studentID);
 
     }
 
@@ -116,15 +118,13 @@ public class AssignmentController {
     /**
      * 学生回复一条作业
      * */
-    @RequestMapping(value = "reply/upload", method = RequestMethod.GET, consumes = "application/json")
-    public List<StudentInfo> uploadReply(@RequestHeader(value = "token") String token, @RequestParam(value = "AssignmentID") String assignmentID){
+    @ResponseStatus(value = HttpStatus.OK)
+    @RequestMapping(value = "reply/upload", method = RequestMethod.POST, consumes = "application/json")
+    public void uploadReply(@RequestHeader(value = "token") String token, @RequestParam(value = "AssignmentID") String assignmentID, @RequestBody ReplyReceived reply){
         Session session = sessionManager.getSession(token);
-        return null;
+        pool.saveReply(reply, assignmentID,session.getUserName());
     }
 
-    /**
-     * 学生请求一条作业的回复
-     * */
 
 
 }
