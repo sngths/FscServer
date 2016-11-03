@@ -120,9 +120,9 @@ public class AssignmentController {
      * */
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "reply/upload", method = RequestMethod.POST, consumes = "application/json")
-    public void uploadReply(@RequestHeader(value = "token") String token, @RequestParam(value = "AssignmentID") String assignmentID, @RequestBody ReplyReceived reply){
+    public ReplySend uploadReply(@RequestHeader(value = "token") String token, @RequestParam(value = "AssignmentID") String assignmentID, @RequestBody ReplyReceived reply){
         Session session = sessionManager.getSession(token);
-        pool.saveReply(reply, assignmentID,session.getUserName());
+        return pool.saveReply(reply, assignmentID,session.getUserName());
     }
 
 

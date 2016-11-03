@@ -103,7 +103,7 @@ public class AssignmentPool {
     /**
      * 保存一条作业的回复
      * */
-    public void saveReply(ReplyReceived reply, String assignmentID, String studentID){
+    public ReplySend saveReply(ReplyReceived reply, String assignmentID, String studentID){
         ReplySend replySend = new ReplySend();
         replySend.setId(String.valueOf(replyPool.get(assignmentID).size()));
         replySend.setAssignmentID(assignmentID);
@@ -114,7 +114,11 @@ public class AssignmentPool {
         replySend.setImages(reply.getImages());
         replyPool.get(assignmentID).put(studentID, replySend);
         //保存提交学生ID
-        replyList.get(assignmentID).add(studentID);
+        if (!replyPool.get(assignmentID).contains(studentID))
+        {
+            replyList.get(assignmentID).add(studentID);
+        }
+        return replySend;
     }
 
     /**
