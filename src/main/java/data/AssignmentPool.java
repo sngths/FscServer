@@ -3,6 +3,7 @@ package data;
 import data.account.AccountManager;
 import entity.info.StudentInfo;
 import entity.transfer.received.AssignmentReceived;
+import entity.transfer.Comment;
 import entity.transfer.received.ReplyReceived;
 import entity.transfer.response.AssignmentSend;
 import entity.transfer.response.ReplySend;
@@ -14,6 +15,7 @@ import util.Server;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -31,8 +33,11 @@ public class AssignmentPool {
 
     //作业id对应的回复列表
     private Map<String, ConcurrentHashMap<String, ReplySend>> replyPool = new ConcurrentHashMap<>();//作业id 对应学生ID-回复 map
-    //一条作业对应的回复学生ID列表
-    private Map<String, CopyOnWriteArrayList<String>> replyList = new ConcurrentHashMap<>();
+    //一条作业ID对应的回复学生ID列表
+    private Map<String, CopyOnWriteArrayList<String>> replyStudentListMap = new ConcurrentHashMap<>();
+
+    //学生回复ID对应的评论 map
+    private Map<String, Comment> commentMap = new ConcurrentHashMap<>();
 
 
 
@@ -71,7 +76,7 @@ public class AssignmentPool {
         //创建回复map
         replyPool.put(assignment.getId(), new ConcurrentHashMap<>());
         //创建回复学生ID list
-        replyList.put(assignment.getId(), new CopyOnWriteArrayList<>());
+        replyStudentListMap.put(assignment.getId(), new CopyOnWriteArrayList<>());
     }
 
 
@@ -105,7 +110,7 @@ public class AssignmentPool {
      * */
     public ReplySend saveReply(ReplyReceived reply, String assignmentID, String studentID){
         ReplySend replySend = new ReplySend();
-        replySend.setId(String.valueOf(replyPool.get(assignmentID).size()));
+        replySend.setId(String.valueOf(UUID.randomUUID().toString().replace("-", "")));//设定随机数为回复ID
         replySend.setAssignmentID(assignmentID);
         replySend.setStudentID(studentID);
         replySend.setTitle(reply.getTitle());
@@ -114,9 +119,8 @@ public class AssignmentPool {
         replySend.setImages(reply.getImages());
         replyPool.get(assignmentID).put(studentID, replySend);
         //保存提交学生ID
-        if (!replyPool.get(assignmentID).contains(studentID))
-        {
-            replyList.get(assignmentID).add(studentID);
+        if (!replyStudentListMap.get(assignmentID).contains(studentID)) {
+            replyStudentListMap.get(assignmentID).add(studentID);
         }
         return replySend;
     }
@@ -127,8 +131,10 @@ public class AssignmentPool {
     public List<StudentInfo> getReplyStudentList(String assignmentID){
         List<StudentInfo> infoList = new ArrayList<>();
 
-        for (String studentID : replyList.get(assignmentID)) {
-            infoList.add(accountManager.getStudentInfo(studentID));
+        for (String studentID : replyStudentListMap.get(assignmentID)) {
+            if (!infoList.contains(accountManager.getStudentInfo(studentID))){
+                infoList.add(accountManager.getStudentInfo(studentID));
+            }
         }
         return infoList;
     }
@@ -137,7 +143,18 @@ public class AssignmentPool {
      * 请求一条作业的回复
      * */
     public ReplySend getReply(String assignmentID, String studentID){
-        return replyPool.get(assignmentID).get(studentID);
+        ReplySend replySend = replyPool.get(assignmentID).get(studentID);
+        if (replySend != null){
+            replySend.setComment(commentMap.get(replySend.getId()));
+        }
+        return replySend;
+    }
+
+    /**
+     * 保存一条作业回复
+     * */
+    public void saveComment(Comment comment){
+        commentMap.put(comment.getReplyID(), comment);
     }
 
 

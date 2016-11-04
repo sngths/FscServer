@@ -1,6 +1,7 @@
 package entity.transfer.response;
 
 import entity.assignemnt.Image;
+import entity.transfer.Comment;
 
 import java.util.List;
 
@@ -21,6 +22,16 @@ public class ReplySend {
     private String content;
     private List<Image> images;
 
+    //老师评语
+    private Comment comment;
+
+    public Comment getComment() {
+        return comment;
+    }
+
+    public void setComment(Comment comment) {
+        this.comment = comment;
+    }
 
     public String getId() {
         return id;

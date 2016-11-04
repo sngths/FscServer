@@ -6,6 +6,7 @@ import data.session.Session;
 import data.session.SessionManager;
 import entity.info.StudentInfo;
 import entity.transfer.received.AssignmentReceived;
+import entity.transfer.Comment;
 import entity.transfer.received.ReplyReceived;
 import entity.transfer.response.AssignmentSend;
 import entity.transfer.response.ReplySend;
@@ -124,6 +125,18 @@ public class AssignmentController {
         Session session = sessionManager.getSession(token);
         return pool.saveReply(reply, assignmentID,session.getUserName());
     }
+
+
+    /**
+     * 老师批阅一条作业
+     * */
+    @ResponseStatus(value = HttpStatus.OK)
+    @RequestMapping(value = "comment/upload", method = RequestMethod.POST, consumes = "application/json")
+    public void uploadComment(@RequestHeader(value = "token") String token, @RequestBody Comment comment){
+        Session session = sessionManager.getSession(token);
+        pool.saveComment(comment);
+    }
+
 
 
 
