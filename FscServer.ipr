@@ -63,9 +63,9 @@
             <element id="library" level="project" name="Gradle: org.springframework:spring-expression:4.2.6.RELEASE" />
             <element id="library" level="project" name="Gradle: aopalliance:aopalliance:1.0" />
             <element id="library" level="project" name="Gradle: org.objenesis:objenesis:2.1" />
-            <element id="library" level="project" name="Gradle: org.springframework:spring-tx:4.2.6.RELEASE" />
             <element id="library" level="project" name="Gradle: org.springframework.amqp:spring-amqp:1.5.6.RELEASE" />
             <element id="library" level="project" name="Gradle: org.springframework.retry:spring-retry:1.1.2.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.springframework:spring-tx:4.2.6.RELEASE" />
             <element id="library" level="project" name="Gradle: com.rabbitmq:http-client:1.0.0.RELEASE" />
             <element id="library" level="project" name="Gradle: com.rabbitmq:amqp-client:3.5.7" />
             <element id="library" level="project" name="Gradle: org.thymeleaf:thymeleaf:2.1.4.RELEASE" />
@@ -154,9 +154,9 @@
             <element id="library" level="project" name="Gradle: org.springframework:spring-expression:4.2.6.RELEASE" />
             <element id="library" level="project" name="Gradle: aopalliance:aopalliance:1.0" />
             <element id="library" level="project" name="Gradle: org.objenesis:objenesis:2.1" />
-            <element id="library" level="project" name="Gradle: org.springframework:spring-tx:4.2.6.RELEASE" />
             <element id="library" level="project" name="Gradle: org.springframework.amqp:spring-amqp:1.5.6.RELEASE" />
             <element id="library" level="project" name="Gradle: org.springframework.retry:spring-retry:1.1.2.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.springframework:spring-tx:4.2.6.RELEASE" />
             <element id="library" level="project" name="Gradle: com.rabbitmq:http-client:1.0.0.RELEASE" />
             <element id="library" level="project" name="Gradle: com.rabbitmq:amqp-client:3.5.7" />
             <element id="library" level="project" name="Gradle: org.thymeleaf:thymeleaf:2.1.4.RELEASE" />
