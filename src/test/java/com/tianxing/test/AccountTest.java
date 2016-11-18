@@ -1,6 +1,6 @@
 package com.tianxing.test;
 
-import data.account.AccountManager;
+import com.tianxing.data.account.AccountManager;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

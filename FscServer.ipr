@@ -1,54 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ArtifactManager">
-    <artifact type="war" name="Gradle : fsc-server-0.1.0.war">
+    <artifact type="war" name="Gradle : com.tianxing.fsc-server-0.1.0.war">
       <output-path>$PROJECT_DIR$/out/artifacts/FscServer</output-path>
       <properties id="gradle-properties">
         <options external-project-path="$PROJECT_DIR$" />
       </properties>
-      <root id="archive" name="fsc-server-0.1.0.war">
-        <element id="javaee-facet-resources" facet="FscServer_main/web/Web Gradle : fsc-server-0.1.0.war" />
+      <root id="archive" name="com.tianxing.fsc-server-0.1.0.war">
+        <element id="javaee-facet-resources" facet="FscServer_main/web/Web Gradle : com.tianxing.fsc-server-0.1.0.war" />
         <element id="directory" name="WEB-INF">
           <element id="directory" name="classes">
             <element id="module-output" name="FscServer_main" />
             <element id="dir-copy" path="$PROJECT_DIR$/build/resources/main" />
           </element>
           <element id="directory" name="lib">
-            <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-web:1.3.5.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-aop:1.3.5.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-test:1.3.5.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-amqp:1.3.5.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-thymeleaf:1.3.5.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-devtools:1.3.5.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-configuration-processor:1.3.5.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.mybatis:mybatis:3.4.1" />
             <element id="library" level="project" name="Gradle: mysql:mysql-connector-java:5.1.25" />
+            <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-configuration-processor:1.3.5.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-aop:1.3.5.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-devtools:1.3.5.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.springframework:spring-web:4.2.6.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.mybatis:mybatis:3.4.1" />
+            <element id="library" level="project" name="Gradle: junit:junit:4.12" />
             <element id="library" level="project" name="Gradle: redis.clients:jedis:2.8.1" />
-            <element id="library" level="project" name="Gradle: io.reactivex:rxjava:1.1.6" />
-            <element id="library" level="project" name="Gradle: org.apache.shiro:shiro-core:1.3.2" />
-            <element id="library" level="project" name="Gradle: org.apache.shiro:shiro-web:1.3.2" />
-            <element id="library" level="project" name="Gradle: org.apache.shiro:shiro-aspectj:1.3.2" />
             <element id="library" level="project" name="Gradle: org.apache.shiro:shiro-spring:1.3.2" />
+            <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-thymeleaf:1.3.5.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.apache.shiro:shiro-aspectj:1.3.2" />
+            <element id="library" level="project" name="Gradle: org.thymeleaf:thymeleaf-spring4:2.1.4.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.json:json:20140107" />
             <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter:1.3.5.RELEASE" />
             <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-validation:1.3.5.RELEASE" />
             <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.6.6" />
-            <element id="library" level="project" name="Gradle: org.springframework:spring-web:4.2.6.RELEASE" />
+            <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.6.6" />
             <element id="library" level="project" name="Gradle: org.springframework:spring-webmvc:4.2.6.RELEASE" />
             <element id="library" level="project" name="Gradle: org.springframework:spring-aop:4.2.6.RELEASE" />
             <element id="library" level="project" name="Gradle: org.aspectj:aspectjweaver:1.8.9" />
-            <element id="library" level="project" name="Gradle: junit:junit:4.12" />
+            <element id="library" level="project" name="Gradle: org.springframework.retry:spring-retry:1.1.2.RELEASE" />
             <element id="library" level="project" name="Gradle: org.mockito:mockito-core:1.10.19" />
             <element id="library" level="project" name="Gradle: org.hamcrest:hamcrest-core:1.3" />
             <element id="library" level="project" name="Gradle: org.hamcrest:hamcrest-library:1.3" />
-            <element id="library" level="project" name="Gradle: org.springframework:spring-core:4.2.6.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.springframework:spring-test:4.2.6.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.springframework:spring-messaging:4.2.6.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.apache.shiro:shiro-web:1.3.2" />
             <element id="library" level="project" name="Gradle: org.springframework.amqp:spring-rabbit:1.5.6.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.thymeleaf:thymeleaf-spring4:2.1.4.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.springframework:spring-messaging:4.2.6.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.apache.shiro:shiro-core:1.3.2" />
+            <element id="library" level="project" name="Gradle: org.javassist:javassist:3.18.1-GA" />
             <element id="library" level="project" name="Gradle: nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:1.3.3" />
             <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot:1.3.5.RELEASE" />
             <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-autoconfigure:1.3.5.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.json:json:20140107" />
+            <element id="library" level="project" name="Gradle: org.springframework:spring-test:4.2.6.RELEASE" />
             <element id="library" level="project" name="Gradle: org.apache.commons:commons-pool2:2.4.2" />
             <element id="library" level="project" name="Gradle: org.slf4j:slf4j-api:1.7.21" />
             <element id="library" level="project" name="Gradle: commons-beanutils:commons-beanutils:1.9.2" />
@@ -56,7 +54,7 @@
             <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-logging:1.3.5.RELEASE" />
             <element id="library" level="project" name="Gradle: org.yaml:snakeyaml:1.16" />
             <element id="library" level="project" name="Gradle: org.hibernate:hibernate-validator:5.2.4.Final" />
-            <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.6.6" />
+            <element id="library" level="project" name="Gradle: org.slf4j:jul-to-slf4j:1.7.21" />
             <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.6.6" />
             <element id="library" level="project" name="Gradle: org.springframework:spring-beans:4.2.6.RELEASE" />
             <element id="library" level="project" name="Gradle: org.springframework:spring-context:4.2.6.RELEASE" />
@@ -64,7 +62,7 @@
             <element id="library" level="project" name="Gradle: aopalliance:aopalliance:1.0" />
             <element id="library" level="project" name="Gradle: org.objenesis:objenesis:2.1" />
             <element id="library" level="project" name="Gradle: org.springframework.amqp:spring-amqp:1.5.6.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.springframework.retry:spring-retry:1.1.2.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.slf4j:jcl-over-slf4j:1.7.21" />
             <element id="library" level="project" name="Gradle: org.springframework:spring-tx:4.2.6.RELEASE" />
             <element id="library" level="project" name="Gradle: com.rabbitmq:http-client:1.0.0.RELEASE" />
             <element id="library" level="project" name="Gradle: com.rabbitmq:amqp-client:3.5.7" />
@@ -72,74 +70,75 @@
             <element id="library" level="project" name="Gradle: org.codehaus.groovy:groovy:2.4.6" />
             <element id="library" level="project" name="Gradle: commons-collections:commons-collections:3.2.2" />
             <element id="library" level="project" name="Gradle: ch.qos.logback:logback-classic:1.1.7" />
-            <element id="library" level="project" name="Gradle: org.slf4j:jcl-over-slf4j:1.7.21" />
-            <element id="library" level="project" name="Gradle: org.slf4j:jul-to-slf4j:1.7.21" />
+            <element id="library" level="project" name="Gradle: org.springframework:spring-core:4.2.6.RELEASE" />
+            <element id="library" level="project" name="Gradle: io.reactivex:rxjava:1.1.6" />
             <element id="library" level="project" name="Gradle: org.slf4j:log4j-over-slf4j:1.7.21" />
             <element id="library" level="project" name="Gradle: javax.validation:validation-api:1.1.0.Final" />
             <element id="library" level="project" name="Gradle: org.jboss.logging:jboss-logging:3.3.0.Final" />
             <element id="library" level="project" name="Gradle: com.fasterxml:classmate:1.1.0" />
             <element id="library" level="project" name="Gradle: org.apache.httpcomponents:httpclient:4.5.2" />
             <element id="library" level="project" name="Gradle: ognl:ognl:3.0.8" />
-            <element id="library" level="project" name="Gradle: org.javassist:javassist:3.18.1-GA" />
+            <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-amqp:1.3.5.RELEASE" />
             <element id="library" level="project" name="Gradle: org.unbescape:unbescape:1.1.0.RELEASE" />
             <element id="library" level="project" name="Gradle: ch.qos.logback:logback-core:1.1.7" />
             <element id="library" level="project" name="Gradle: org.apache.httpcomponents:httpcore:4.4.4" />
+            <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-web:1.3.5.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-test:1.3.5.RELEASE" />
             <element id="library" level="project" name="Gradle: commons-codec:commons-codec:1.9" />
+            <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.6.Final/6cb4393b29248778f0bcf89118c949304cec8bb8/netty-all-4.1.6.Final.jar" />
           </element>
         </element>
         <element id="directory" name="META-INF">
-          <element id="file-copy" path="$PROJECT_DIR$/out/artifacts/FscServer/exploded/fsc-server-0.1.0.war/META-INF/MANIFEST.MF" />
+          <element id="file-copy" path="$PROJECT_DIR$/out/artifacts/FscServer/exploded/com.tianxing.fsc-server-0.1.0.war/META-INF/MANIFEST.MF" />
         </element>
       </root>
     </artifact>
-    <artifact type="exploded-war" name="Gradle : fsc-server-0.1.0.war (exploded)">
-      <output-path>$PROJECT_DIR$/out/artifacts/FscServer/exploded/fsc-server-0.1.0.war</output-path>
+    <artifact type="exploded-war" name="Gradle : com.tianxing.fsc-server-0.1.0.war (exploded)">
+      <output-path>$PROJECT_DIR$/out/artifacts/FscServer/exploded/com.tianxing.fsc-server-0.1.0.war</output-path>
       <properties id="gradle-properties">
         <options external-project-path="$PROJECT_DIR$" />
       </properties>
       <root id="root">
-        <element id="javaee-facet-resources" facet="FscServer_main/web/Web Gradle : fsc-server-0.1.0.war" />
+        <element id="javaee-facet-resources" facet="FscServer_main/web/Web Gradle : com.tianxing.fsc-server-0.1.0.war" />
         <element id="directory" name="WEB-INF">
           <element id="directory" name="classes">
             <element id="module-output" name="FscServer_main" />
             <element id="dir-copy" path="$PROJECT_DIR$/build/resources/main" />
           </element>
           <element id="directory" name="lib">
-            <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-web:1.3.5.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-aop:1.3.5.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-test:1.3.5.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-amqp:1.3.5.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-thymeleaf:1.3.5.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-devtools:1.3.5.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-configuration-processor:1.3.5.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.mybatis:mybatis:3.4.1" />
             <element id="library" level="project" name="Gradle: mysql:mysql-connector-java:5.1.25" />
+            <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-configuration-processor:1.3.5.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-aop:1.3.5.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-devtools:1.3.5.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.springframework:spring-web:4.2.6.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.mybatis:mybatis:3.4.1" />
+            <element id="library" level="project" name="Gradle: junit:junit:4.12" />
             <element id="library" level="project" name="Gradle: redis.clients:jedis:2.8.1" />
-            <element id="library" level="project" name="Gradle: io.reactivex:rxjava:1.1.6" />
-            <element id="library" level="project" name="Gradle: org.apache.shiro:shiro-core:1.3.2" />
-            <element id="library" level="project" name="Gradle: org.apache.shiro:shiro-web:1.3.2" />
-            <element id="library" level="project" name="Gradle: org.apache.shiro:shiro-aspectj:1.3.2" />
             <element id="library" level="project" name="Gradle: org.apache.shiro:shiro-spring:1.3.2" />
+            <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-thymeleaf:1.3.5.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.apache.shiro:shiro-aspectj:1.3.2" />
+            <element id="library" level="project" name="Gradle: org.thymeleaf:thymeleaf-spring4:2.1.4.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.json:json:20140107" />
             <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter:1.3.5.RELEASE" />
             <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-validation:1.3.5.RELEASE" />
             <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.6.6" />
-            <element id="library" level="project" name="Gradle: org.springframework:spring-web:4.2.6.RELEASE" />
+            <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.6.6" />
             <element id="library" level="project" name="Gradle: org.springframework:spring-webmvc:4.2.6.RELEASE" />
             <element id="library" level="project" name="Gradle: org.springframework:spring-aop:4.2.6.RELEASE" />
             <element id="library" level="project" name="Gradle: org.aspectj:aspectjweaver:1.8.9" />
-            <element id="library" level="project" name="Gradle: junit:junit:4.12" />
+            <element id="library" level="project" name="Gradle: org.springframework.retry:spring-retry:1.1.2.RELEASE" />
             <element id="library" level="project" name="Gradle: org.mockito:mockito-core:1.10.19" />
             <element id="library" level="project" name="Gradle: org.hamcrest:hamcrest-core:1.3" />
             <element id="library" level="project" name="Gradle: org.hamcrest:hamcrest-library:1.3" />
-            <element id="library" level="project" name="Gradle: org.springframework:spring-core:4.2.6.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.springframework:spring-test:4.2.6.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.springframework:spring-messaging:4.2.6.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.apache.shiro:shiro-web:1.3.2" />
             <element id="library" level="project" name="Gradle: org.springframework.amqp:spring-rabbit:1.5.6.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.thymeleaf:thymeleaf-spring4:2.1.4.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.springframework:spring-messaging:4.2.6.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.apache.shiro:shiro-core:1.3.2" />
+            <element id="library" level="project" name="Gradle: org.javassist:javassist:3.18.1-GA" />
             <element id="library" level="project" name="Gradle: nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:1.3.3" />
             <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot:1.3.5.RELEASE" />
             <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-autoconfigure:1.3.5.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.json:json:20140107" />
+            <element id="library" level="project" name="Gradle: org.springframework:spring-test:4.2.6.RELEASE" />
             <element id="library" level="project" name="Gradle: org.apache.commons:commons-pool2:2.4.2" />
             <element id="library" level="project" name="Gradle: org.slf4j:slf4j-api:1.7.21" />
             <element id="library" level="project" name="Gradle: commons-beanutils:commons-beanutils:1.9.2" />
@@ -147,7 +146,7 @@
             <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-logging:1.3.5.RELEASE" />
             <element id="library" level="project" name="Gradle: org.yaml:snakeyaml:1.16" />
             <element id="library" level="project" name="Gradle: org.hibernate:hibernate-validator:5.2.4.Final" />
-            <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.6.6" />
+            <element id="library" level="project" name="Gradle: org.slf4j:jul-to-slf4j:1.7.21" />
             <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.6.6" />
             <element id="library" level="project" name="Gradle: org.springframework:spring-beans:4.2.6.RELEASE" />
             <element id="library" level="project" name="Gradle: org.springframework:spring-context:4.2.6.RELEASE" />
@@ -155,7 +154,7 @@
             <element id="library" level="project" name="Gradle: aopalliance:aopalliance:1.0" />
             <element id="library" level="project" name="Gradle: org.objenesis:objenesis:2.1" />
             <element id="library" level="project" name="Gradle: org.springframework.amqp:spring-amqp:1.5.6.RELEASE" />
-            <element id="library" level="project" name="Gradle: org.springframework.retry:spring-retry:1.1.2.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.slf4j:jcl-over-slf4j:1.7.21" />
             <element id="library" level="project" name="Gradle: org.springframework:spring-tx:4.2.6.RELEASE" />
             <element id="library" level="project" name="Gradle: com.rabbitmq:http-client:1.0.0.RELEASE" />
             <element id="library" level="project" name="Gradle: com.rabbitmq:amqp-client:3.5.7" />
@@ -163,23 +162,26 @@
             <element id="library" level="project" name="Gradle: org.codehaus.groovy:groovy:2.4.6" />
             <element id="library" level="project" name="Gradle: commons-collections:commons-collections:3.2.2" />
             <element id="library" level="project" name="Gradle: ch.qos.logback:logback-classic:1.1.7" />
-            <element id="library" level="project" name="Gradle: org.slf4j:jcl-over-slf4j:1.7.21" />
-            <element id="library" level="project" name="Gradle: org.slf4j:jul-to-slf4j:1.7.21" />
+            <element id="library" level="project" name="Gradle: org.springframework:spring-core:4.2.6.RELEASE" />
+            <element id="library" level="project" name="Gradle: io.reactivex:rxjava:1.1.6" />
             <element id="library" level="project" name="Gradle: org.slf4j:log4j-over-slf4j:1.7.21" />
             <element id="library" level="project" name="Gradle: javax.validation:validation-api:1.1.0.Final" />
             <element id="library" level="project" name="Gradle: org.jboss.logging:jboss-logging:3.3.0.Final" />
             <element id="library" level="project" name="Gradle: com.fasterxml:classmate:1.1.0" />
             <element id="library" level="project" name="Gradle: org.apache.httpcomponents:httpclient:4.5.2" />
             <element id="library" level="project" name="Gradle: ognl:ognl:3.0.8" />
-            <element id="library" level="project" name="Gradle: org.javassist:javassist:3.18.1-GA" />
+            <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-amqp:1.3.5.RELEASE" />
             <element id="library" level="project" name="Gradle: org.unbescape:unbescape:1.1.0.RELEASE" />
             <element id="library" level="project" name="Gradle: ch.qos.logback:logback-core:1.1.7" />
             <element id="library" level="project" name="Gradle: org.apache.httpcomponents:httpcore:4.4.4" />
+            <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-web:1.3.5.RELEASE" />
+            <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-test:1.3.5.RELEASE" />
             <element id="library" level="project" name="Gradle: commons-codec:commons-codec:1.9" />
+            <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.6.Final/6cb4393b29248778f0bcf89118c949304cec8bb8/netty-all-4.1.6.Final.jar" />
           </element>
         </element>
         <element id="directory" name="META-INF">
-          <element id="file-copy" path="$PROJECT_DIR$/out/artifacts/FscServer/exploded/fsc-server-0.1.0.war/META-INF/MANIFEST.MF" />
+          <element id="file-copy" path="$PROJECT_DIR$/out/artifacts/FscServer/exploded/com.tianxing.fsc-server-0.1.0.war/META-INF/MANIFEST.MF" />
         </element>
       </root>
     </artifact>
@@ -383,7 +385,7 @@
   </component>
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/src/main/resources/data.sql" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/schema.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/fsc_mysql.sql" dialect="MySQL" />
   </component>
   <component name="SvnBranchConfigurationManager">
     <option name="mySupportsUserInfoFilter" value="true" />
@@ -498,6 +500,15 @@
       <JAVADOC />
       <SOURCES>
         <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-collections/commons-collections/3.2.2/78c50ebda5784937ca1615fc0e1d0cb35857d572/commons-collections-3.2.2-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: io.netty:netty-all:4.1.6.Final">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.6.Final/6cb4393b29248778f0bcf89118c949304cec8bb8/netty-all-4.1.6.Final.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/4.1.6.Final/699ff4842f3ad4aff00b0835f07fede8563e4513/netty-all-4.1.6.Final-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Gradle: io.reactivex:rxjava:1.1.6">
