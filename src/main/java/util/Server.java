@@ -7,6 +7,7 @@ import java.util.Date;
 
 /**
  * Created by tianxing on 16/10/27.
+ *
  */
 public class Server {
 
