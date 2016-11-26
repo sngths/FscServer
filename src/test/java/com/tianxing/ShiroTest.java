@@ -1,4 +1,4 @@
-package com.tianxing.test;
+package com.tianxing;
 
 /**
  * Created by tianxing on 16/10/5.

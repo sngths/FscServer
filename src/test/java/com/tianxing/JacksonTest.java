@@ -1,8 +1,12 @@
-package com.tianxing.test;
+package com.tianxing;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.ReferenceType;
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.ByteBufInputStream;
+import io.netty.buffer.ByteBufOutputStream;
+import io.netty.buffer.EmptyByteBuf;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,13 +18,17 @@ import java.util.Map;
  */
 public class JacksonTest {
 
+
+    ObjectMapper objectMapper = new ObjectMapper();
     public void a(){
-        ObjectMapper objectMapper = new ObjectMapper();
+
 
         //解析
         try {
             User user = objectMapper.readValue(new File(""), User.class);
             User user1 = objectMapper.readValue("", User.class);
+            objectMapper.readValue(new byte[3], User.class);
+
             Map<String, User> userMap = objectMapper.readValue("", new TypeReference<Map<String, User>>(){});
         } catch (IOException e) {
             e.printStackTrace();
@@ -30,9 +38,23 @@ public class JacksonTest {
         try {
 
             objectMapper.writeValue(new File(""), user);
+            //objectMapper.writeValue();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+
+
+    //
+    private void encode(ByteBuf buf) throws IOException {
+        ByteBufInputStream inputStream = new ByteBufInputStream(buf);
+        User user = objectMapper.readValue(inputStream, User.class);
+    }
+
+
+    private void decode(User user){
+
     }
 
 

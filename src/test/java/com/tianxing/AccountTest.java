@@ -1,4 +1,4 @@
-package com.tianxing.test;
+package com.tianxing;
 
 import com.tianxing.data.account.AccountManager;
 import org.junit.Test;

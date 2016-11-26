@@ -1,4 +1,4 @@
-package com.tianxing.test;
+package com.tianxing;
 
 import redis.clients.jedis.HostAndPort;
 import redis.clients.jedis.Jedis;
