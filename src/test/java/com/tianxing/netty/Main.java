@@ -10,33 +10,21 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.ByteToMessageDecoder;
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 import io.netty.handler.codec.LengthFieldPrepender;
-import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.traffic.GlobalTrafficShapingHandler;
 import io.netty.util.CharsetUtil;
 import io.netty.util.concurrent.GlobalEventExecutor;
-import org.junit.Test;
 
 import java.net.SocketAddress;
-import java.nio.charset.Charset;
 import java.util.List;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * Created by tianxing on 16/11/18.
- *
+ * Created by tianxing on 16/11/30.
  */
-public class NettyTest {
+public class Main {
 
-
-
-
-
-
-
-
-    @Test
-    public void start(){
+    public static void main(String[] args) {
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         try {
@@ -50,7 +38,7 @@ public class NettyTest {
             //绑定端口开始接受连接请求
             ChannelFuture channelFuture = bootstrap.bind(12345).sync();
             //等待端口关闭
-            channelFuture.channel().closeFuture().sync();
+            //channelFuture.channel().closeFuture().sync();
 
 
         } catch (InterruptedException e) {
@@ -59,15 +47,10 @@ public class NettyTest {
             workerGroup.shutdownGracefully();
             System.out.println("服务关闭完成");
         }
-
-
     }
 
 
-
-
-
-    private class ChildChannelHandler extends ChannelInitializer{
+    private static class ChildChannelHandler extends ChannelInitializer {
 
 
         @Override
@@ -116,7 +99,7 @@ public class NettyTest {
     /**
      * 处理由I/O线程触发的事件
      * */
-    private class MessageHandler extends ChannelInboundHandlerAdapter{
+    private static class MessageHandler extends ChannelInboundHandlerAdapter{
 
 
         //Handler中的方法  调用父类对应的方法 则交给责任链中的下一个Handler执行
@@ -254,7 +237,7 @@ public class NettyTest {
     /**
      * 全局流量整形  控制流量处理速率 防止处理模块无法及时处理
      * */
-    private class TrafficShaping extends GlobalTrafficShapingHandler{
+    private class TrafficShaping extends GlobalTrafficShapingHandler {
 
         public TrafficShaping(ScheduledExecutorService executor, long writeLimit, long readLimit, long checkInterval, long maxTime) {
             super(executor, writeLimit, readLimit, checkInterval, maxTime);

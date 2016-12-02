@@ -71,19 +71,35 @@ public class NettyClient {
 
             //Random random = new Random(12321);
             AtomicInteger count = new AtomicInteger(0);
+            final AtomicInteger courrentCount = new AtomicInteger(0);
             try {
                 Thread.currentThread().sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            new Thread(() -> {
+            Thread thread = new Thread(() -> {
                 while (true){
 
-                    ch.write("aaaa" +  count.incrementAndGet());
-                    ch.flush();
+                    for (int i = 0; i < 500; i++) {
+                        ch.write("aaaa" +  count.incrementAndGet());
+                        if (count.get() - courrentCount.get() > 1000){
+                            ch.flush();
+                            courrentCount.set(count.get());
+                        }
+                    }
+                    try {
+                        Thread.currentThread().sleep(1);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
                     //System.out.println("发送消息" + count.get());
                 }
-            }).start();
+            });
+            thread.setDaemon(true);
+            thread.start();
+
+            //定时刷新
 
         }
 
@@ -130,7 +146,7 @@ public class NettyClient {
      * 发送消息
      * */
     private class OutBoundMessageHandler extends ChannelOutboundHandlerAdapter{
-
+        ByteBuf buf = null;
 
 
         @Override
@@ -145,7 +161,7 @@ public class NettyClient {
         }
         @Override
         public void write(ChannelHandlerContext ctx, Object msg, ChannelPromise promise) throws Exception {
-            ByteBuf buf = null;
+
 
 
             try {
@@ -157,15 +173,20 @@ public class NettyClient {
 
                 //ctx.flush();
                 ctx.write(buf);
-                buf = null;
+                //buf = null;
             } finally {
                 if (buf != null){
-                    buf.release();
+                    //buf.release();
+                    buf = null;
                 }
             }
 
         }
 
+        @Override
+        public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+            //buf.release();
 
+        }
     }
 }
