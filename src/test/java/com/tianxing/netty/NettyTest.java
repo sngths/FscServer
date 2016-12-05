@@ -11,6 +11,7 @@ import io.netty.handler.codec.ByteToMessageDecoder;
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 import io.netty.handler.codec.LengthFieldPrepender;
 import io.netty.handler.codec.string.StringDecoder;
+import io.netty.handler.timeout.IdleStateHandler;
 import io.netty.handler.traffic.GlobalTrafficShapingHandler;
 import io.netty.util.CharsetUtil;
 import io.netty.util.concurrent.GlobalEventExecutor;
@@ -61,6 +62,8 @@ public class NettyTest {
         }
 
 
+
+
     }
 
 
@@ -83,11 +86,15 @@ public class NettyTest {
 
             //ch.pipeline().addLast("StringDecoder", new StringDecoder(CharsetUtil.UTF_8));//字符串解码器
             ch.pipeline().addLast(new MessageHandler());
+            ch.pipeline().addLast(new IdleStateHandler(120, 120, 0));//空闲检测 超时则触发超时事件 传递给下个Handler
+            ch.pipeline().addLast(new HeartBeatRequestHandler());//处理超时事件
 
 
             //outbound  按逆序处理
             ch.pipeline().addLast("LengthFieldPrepender", new LengthFieldPrepender(4, false));//在消息头部添加 数据长度 长度信息占用4个字节 长度字节不算在总长度中
             System.out.println("服务端接收到连接请求");
+
+
         }
 
         @Override
@@ -245,8 +252,11 @@ public class NettyTest {
     /**
      * 心跳检测
      * */
-    private class HeartBeatRequestHandler{
-
+    private class HeartBeatRequestHandler extends ChannelDuplexHandler{
+        @Override
+        public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
+            //
+        }
     }
 
 

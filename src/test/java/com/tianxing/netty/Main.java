@@ -41,6 +41,17 @@ public class Main {
             //channelFuture.channel().closeFuture().sync();
 
 
+
+            //第二个服务器监听端口
+            ServerBootstrap bootstrap1 = new ServerBootstrap();
+            bootstrap1.group(bossGroup, workerGroup)
+                    .channel(NioServerSocketChannel.class)
+                    .option(ChannelOption.SO_BACKLOG, 1024)
+                    .childOption(ChannelOption.SO_KEEPALIVE, true)
+                    .childHandler(new ChildChannelHandler());
+            bootstrap1.bind(12346).sync();
+
+
         } catch (InterruptedException e) {
             e.printStackTrace();
             bossGroup.shutdownGracefully();
@@ -71,11 +82,17 @@ public class Main {
             //outbound  按逆序处理
             ch.pipeline().addLast("LengthFieldPrepender", new LengthFieldPrepender(4, false));//在消息头部添加 数据长度 长度信息占用4个字节 长度字节不算在总长度中
             System.out.println("服务端接收到连接请求");
+
         }
 
         @Override
         public void channelActive(ChannelHandlerContext ctx) throws Exception {
             super.channelActive(ctx);
+        }
+
+        @Override
+        public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+            super.exceptionCaught(ctx, cause);
         }
     }
 
