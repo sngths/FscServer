@@ -12,6 +12,7 @@ import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 import io.netty.handler.codec.LengthFieldPrepender;
 import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.timeout.IdleStateHandler;
+import io.netty.handler.traffic.ChannelTrafficShapingHandler;
 import io.netty.handler.traffic.GlobalTrafficShapingHandler;
 import io.netty.util.CharsetUtil;
 import io.netty.util.concurrent.GlobalEventExecutor;
@@ -268,12 +269,19 @@ public class NettyTest {
 
         public TrafficShaping(ScheduledExecutorService executor, long writeLimit, long readLimit, long checkInterval, long maxTime) {
             super(executor, writeLimit, readLimit, checkInterval, maxTime);
+
         }
     }
 
     /**
      * 链路级流量整形
      * */
+    private class ChannelTrafficShaping extends ChannelTrafficShapingHandler{
+
+        public ChannelTrafficShaping(long writeLimit, long readLimit, long checkInterval, long maxTime) {
+            super(writeLimit, readLimit, checkInterval, maxTime);
+        }
+    }
 
 
 
