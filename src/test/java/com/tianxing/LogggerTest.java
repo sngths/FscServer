@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
  */
 public class LogggerTest {
 
-    //@Test
+    //@UIDTest
     public void slf4j(){
         Logger logger = LoggerFactory.getLogger(LogggerTest.class);
         logger.info("slf4j test");

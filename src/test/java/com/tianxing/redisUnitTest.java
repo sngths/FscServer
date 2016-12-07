@@ -13,7 +13,7 @@ import java.util.Random;
 public class redisUnitTest {
 
 
-    //@Test
+    //@UIDTest
     public void test1() {
         JedisPoolConfig poolConfig = new JedisPoolConfig();
         //poolConfig.s

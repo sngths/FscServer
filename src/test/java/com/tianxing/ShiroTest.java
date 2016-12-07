@@ -7,7 +7,7 @@ package com.tianxing;
 public class ShiroTest {
 
 
-    //@Test
+    //@UIDTest
     public void helloWord(){
 //        Factory<SecurityManager> factory = new IniSecurityManagerFactory("classpath:shiro.ini");
 //        SecurityManager manager = factory.getInstance();

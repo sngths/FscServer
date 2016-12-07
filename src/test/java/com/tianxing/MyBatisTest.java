@@ -8,7 +8,7 @@ package com.tianxing;
 
 public class MyBatisTest {
 
-    //@Test
+    //@UIDTest
     public void test1(){
 //        PooledDataSource dataSource = new PooledDataSource();
 //        dataSource.setDriver("com.mysql.jdbc.Driver");
