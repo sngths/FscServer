@@ -110,6 +110,18 @@ public class UID {
         return sb.toString();
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public String getDomain() {
+        return domain;
+    }
+
+    public String getResource() {
+        return resource;
+    }
+
     @Override
     public boolean equals(Object object) {
         if(!(object instanceof UID)) {
@@ -140,5 +152,10 @@ public class UID {
                 return true;
             }
         }
+    }
+
+    @Override
+    public int hashCode() {
+        return toString().hashCode();
     }
 }
