@@ -1,6 +1,9 @@
 package im.session;
 
+import com.tianxing.data.session.SessionManager;
 import im.connection.Connection;
+import im.message.Packet;
+import im.streammanagement.StreamManager;
 import im.util.StreamID;
 import im.util.UID;
 
@@ -37,6 +40,10 @@ public abstract class LocalSession implements Session {
      */
     private Connection connection;
 
+    protected SessionManager sessionManager;
+
+    protected StreamManager streamManager;
+
 
     /**
      * session中临时存储的数据 和session的生命周期相同
@@ -52,5 +59,43 @@ public abstract class LocalSession implements Session {
         this.connection = connection;
         this.streamID = streamID;
     }
+
+
+    public void incrementClientPacketCount(){
+
+    }
+
+
+
+
+    public void incrementServerPacketCount(){
+
+    }
+
+
+
+
+
+    public void setSessionData(String key, Object value){
+
+    }
+
+
+    public Object getSessionDate(String key){
+        return null;
+    }
+
+
+    public void removeSessionData(String key){
+
+    }
+
+
+
+
+    public void process(Packet packet){
+
+    }
+
 
 }
