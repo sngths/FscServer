@@ -39,7 +39,7 @@ public class NettyTest {
 
     @Test
     public void start(){
-        EventLoopGroup bossGroup = new NioEventLoopGroup();
+        EventLoopGroup bossGroup = new NioEventLoopGroup(); //默认线程数为CPU数 * 2
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         try {
             ServerBootstrap bootstrap = new ServerBootstrap();

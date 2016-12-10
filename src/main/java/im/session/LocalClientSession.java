@@ -29,6 +29,17 @@ public class LocalClientSession extends LocalSession implements ClientSession{
         super(serverName, connection, streamID);
     }
 
+
+
+
+    /***
+     * 创建session
+     * */
+
+    public static LocalClientSession createSession(){
+        return null;
+    }
+
     @Override
     public UID getUID() {
         return null;
