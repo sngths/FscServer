@@ -12,7 +12,7 @@ import java.util.Set;
  * Created by tianxing on 16/12/2.
  *
  */
-public class LocalClientSession extends LocalSession implements ClientSession{
+public class LocalClientSession extends LocalSession implements StanzaHandler {
 
 
     private static Set<String> allowedIPs = new HashSet<>();

@@ -79,12 +79,14 @@ public class ConnectionManagerImp extends ModuleAdapter implements ConnectionMan
 
     @Override
     public void start() {
+        startListeners();
         super.start();
     }
 
 
     @Override
     public void stop() {
+        stopListeners();
         super.stop();
     }
 

@@ -15,7 +15,7 @@ public class SessionManager {
 
 
 
-    public ClientSession createSession(){
+    public StanzaHandler createSession(){
         return null;
     }
 
@@ -23,7 +23,7 @@ public class SessionManager {
     /***
      * 通过ID获取指定用户的session
      * */
-    public ClientSession getSession(UID from){
+    public StanzaHandler getSession(UID from){
         return null;
     }
 }

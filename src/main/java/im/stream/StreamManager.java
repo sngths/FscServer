@@ -1,6 +1,4 @@
-package im.streammanagement;
-
-import com.sun.xml.internal.ws.api.message.Packet;
+package im.stream;
 
 /**
  * Created by tianxing on 16/12/5.

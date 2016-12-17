@@ -3,7 +3,7 @@ package im.session;
 import com.tianxing.data.session.SessionManager;
 import im.connection.Connection;
 import im.message.Packet;
-import im.streammanagement.StreamManager;
+import im.stream.StreamManager;
 import im.util.StreamID;
 import im.util.UID;
 

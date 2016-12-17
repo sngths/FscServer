@@ -1,6 +1,7 @@
 package im.connection;
 
-import java.util.HashMap;
+import im.session.StanzaHandler;
+import io.netty.channel.Channel;
 
 /**
  * Created by tianxing on 16/12/5.
@@ -10,5 +11,17 @@ import java.util.HashMap;
 public class ClientConnectionHandler extends ConnectionHandler {
 
 
+    public ClientConnectionHandler(ConnectionConfiguration configuration) {
+        super(configuration);
+    }
 
+    @Override
+    Connection createConnection(Channel channel) {
+        return null;
+    }
+
+    @Override
+    StanzaHandler createStanzaHandler() {
+        return null;
+    }
 }
