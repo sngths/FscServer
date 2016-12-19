@@ -2,6 +2,7 @@ package im.connection;
 
 import com.sun.xml.internal.bind.v2.runtime.reflect.Lister;
 import im.auth.UnauthorizedException;
+import im.handler.StanzaHandler;
 import im.message.Packet;
 import im.session.LocalSession;
 
@@ -33,6 +34,12 @@ public interface Connection {
 
     String getHostName();
 
+
+
+    /**
+     * 创建StanzaHandler
+     * */
+    StanzaHandler createStanzaHandler();
 
 
     void deliver(Packet packet) throws UnauthorizedException;

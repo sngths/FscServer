@@ -9,6 +9,8 @@ package im.offlineMessage;
 public class OfflineMessageStrategy {
 
 
+    private OfflineMessageStore offlineMessageStore;
+
 
 
 

@@ -31,7 +31,7 @@ public class NettyConnectionAcceptor extends ConnectionAcceptor {
 
 
         //创建Handler
-        connectionHandler = new ClientConnectionHandler();
+        connectionHandler = new ClientConnectionHandler(configuration);
     }
 
 

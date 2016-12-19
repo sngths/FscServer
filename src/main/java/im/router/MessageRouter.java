@@ -2,6 +2,10 @@ package im.router;
 
 import im.Server;
 import im.container.ModuleAdapter;
+import im.message.Message;
+import im.offlineMessage.OfflineMessageStrategy;
+import im.session.ClientSession;
+import im.session.SessionManager;
 
 /**
  * Created by tianxing on 16/12/7.
@@ -10,6 +14,15 @@ import im.container.ModuleAdapter;
  *
  */
 public class MessageRouter extends ModuleAdapter{
+
+    private OfflineMessageStrategy offlineMessageStrategy;
+    private RoutingTable routingTable;
+    private SessionManager sessionManager;
+    private MulticastRouter multicastRouter;
+
+
+    private String serverName;
+
 
 
 
@@ -20,13 +33,19 @@ public class MessageRouter extends ModuleAdapter{
 
 
 
-    public void route(){
+    public void route(Message message){
+        if (message == null){
+            throw new NullPointerException();
+        }
+        //ClientSession session =
+
+
 
     }
 
     @Override
     public void initialize(Server server) {
-        super.initialize(server);
+
     }
 
 
