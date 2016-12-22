@@ -25,7 +25,7 @@ public interface RoutingTable  {
 
     void routePacket(UID uid, Packet packet, boolean formServer) throws PacketException;
 
-    boolean hasClinetRoute(UID uid);
+    boolean hasClientRoute(UID uid);
 
     boolean isAnonymousRoute(UID uid);
 
@@ -50,6 +50,16 @@ public interface RoutingTable  {
     int getServerSessionsCount();
 
     Collection<String> getComponentsDomains();
+
+
+
+
+    boolean removeServerRoute(UID uid);
+
+    boolean removeComponentRoute(UID uid);
+
+    boolean removeClientRoute(UID uid);
+
 
 
 
