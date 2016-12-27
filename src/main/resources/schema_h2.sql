@@ -1,5 +1,5 @@
 
-CREATE TABLE User (
+CREATE TABLE user (
     username              VARCHAR(64)     NOT NULL,
     password              VARCHAR(32),
     email                 VARCHAR(100),

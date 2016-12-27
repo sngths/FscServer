@@ -1,5 +1,7 @@
 package com.tianxing.config;
 
+import mybatis.mapper.UserCreateMapper;
+import mybatis.mapper.UserMapper;
 import org.apache.ibatis.datasource.pooled.PooledDataSource;
 import org.apache.ibatis.jdbc.ScriptRunner;
 import org.apache.ibatis.mapping.Environment;
@@ -67,9 +69,8 @@ public class DataBaseConfig {
         //构建配置对象
         org.apache.ibatis.session.Configuration configuration = new org.apache.ibatis.session.Configuration(environment);
 
-
-
-
+        configuration.addMapper(UserMapper.class);
+        configuration.addMapper(mybatis.mapper.UserCreateMapper.class);
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(configuration);
         return factory;
     }
