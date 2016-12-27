@@ -5,6 +5,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import util.Server;
 
+import java.util.Date;
+
 /**
  * Created by tianxing on 16/10/27.
  */
@@ -38,5 +40,11 @@ public class UtilTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+
+
+    public void test(){
+        Date date = new Date();
     }
 }

@@ -11,8 +11,9 @@ import org.slf4j.LoggerFactory;
 public class AccountTest {
 
     Logger logger = LoggerFactory.getLogger(AccountTest.class);
+
     @Test
-    public void accountmanager(){
+    public void accountManager(){
         AccountManager manager = new AccountManager();
         logger.info("班级数:" + String.valueOf(manager.getClassInfoMap().size()));
         logger.info("学生数:" + String.valueOf(manager.getStudentInfoMap().size()));

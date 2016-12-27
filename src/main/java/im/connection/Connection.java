@@ -1,6 +1,5 @@
 package im.connection;
 
-import com.sun.xml.internal.bind.v2.runtime.reflect.Lister;
 import im.auth.UnauthorizedException;
 import im.handler.StanzaHandler;
 import im.message.Packet;

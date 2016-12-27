@@ -27,7 +27,7 @@ public class NettyClient {
 
 
 
-    @Test
+    //@Test
     public void start() throws InterruptedException {
         EventLoopGroup eventLoopGroup = new NioEventLoopGroup();
         try {

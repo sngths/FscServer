@@ -45,7 +45,7 @@ public class NIOConnection implements Connection {
 
     @Override
     public StanzaHandler createStanzaHandler() {
-        return new ClientStanzaHandler();
+        return new ClientStanzaHandler(null);
     }
 
     @Override

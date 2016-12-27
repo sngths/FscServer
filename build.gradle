@@ -85,12 +85,13 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-aop")
     compile("org.springframework.boot:spring-boot-starter-test")
-    //compile("org.springframework.boot:spring-boot-starter-jdbc")
+    compile("org.springframework.boot:spring-boot-starter-jdbc")
     //compile("org.springframework.boot:spring-boot-starter-log4j")
     compile("org.springframework.boot:spring-boot-starter-amqp")
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
     compile("org.springframework.boot:spring-boot-devtools")
     compile("org.springframework.boot:spring-boot-configuration-processor")
+    compile 'com.h2database:h2:1.4.193'
     compile 'org.mybatis:mybatis:3.4.1'
     compile 'mysql:mysql-connector-java:5.1.25'
     compile 'redis.clients:jedis:2.8.1'

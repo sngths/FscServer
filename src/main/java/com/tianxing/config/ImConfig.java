@@ -3,10 +3,9 @@ package com.tianxing.config;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * Created by tianxing on 16/10/11.
- *
+ * Created by tianxing on 16/12/27.
  */
-@Configuration
-public class MyBatisConfig {
 
+@Configuration
+public class ImConfig {
 }

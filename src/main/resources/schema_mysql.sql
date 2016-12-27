@@ -7,7 +7,7 @@
 #
 #
 # #################
-CREATE TABLE ofUser (
+CREATE TABLE User (
     username              VARCHAR(64)     NOT NULL,
     plainPassword         VARCHAR(32),
     encryptedPassword     VARCHAR(255),
@@ -37,3 +37,4 @@ CREATE TABLE IF NOT EXISTS `Users` (
     `id` varchar(200) NOT NULL,
     PRIMARY KEY (`user_id`)
 );
+
