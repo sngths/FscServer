@@ -1,7 +1,7 @@
 package com.tianxing.config;
 
-import mybatis.mapper.UserCreateMapper;
 import mybatis.mapper.UserMapper;
+import mybatis.pojo.User;
 import org.apache.ibatis.datasource.pooled.PooledDataSource;
 import org.apache.ibatis.jdbc.ScriptRunner;
 import org.apache.ibatis.mapping.Environment;
@@ -10,6 +10,8 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.ibatis.transaction.TransactionFactory;
 import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
+import org.apache.ibatis.type.TypeAliasRegistry;
+import org.apache.ibatis.type.TypeHandlerRegistry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,9 +21,7 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.test.context.ActiveProfiles;
 
 import javax.sql.DataSource;
-import java.io.IOException;
-
-import static org.apache.ibatis.io.Resources.getResourceAsReader;
+import java.util.Properties;
 
 /**
  * Created by tianxing on 16/10/11.
@@ -71,6 +71,28 @@ public class DataBaseConfig {
 
         configuration.addMapper(UserMapper.class);
         configuration.addMapper(mybatis.mapper.UserCreateMapper.class);
+        //配置属性元素 在上下文中使用
+        Properties properties;
+        if (configuration.getVariables() == null){
+             properties = new Properties();
+        }else {
+            properties = configuration.getVariables();
+        }
+        properties.setProperty("username", "fsc");
+        properties.setProperty("password", "123456");
+        configuration.setVariables(properties);
+        //设置
+        configuration.setCacheEnabled(true);
+
+        //配置类型别名
+        TypeAliasRegistry aliasRegistry = configuration.getTypeAliasRegistry();
+        aliasRegistry.registerAlias("user", User.class);
+        //aliasRegistry.registerAliases("");//扫描包加载别名
+
+        //类型处理器
+        TypeHandlerRegistry handlerRegistry = configuration.getTypeHandlerRegistry();
+
+
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(configuration);
         return factory;
     }

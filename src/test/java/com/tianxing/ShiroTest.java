@@ -10,7 +10,7 @@ public class ShiroTest {
     //@UIDTest
     public void helloWord(){
 //        Factory<SecurityManager> factory = new IniSecurityManagerFactory("classpath:shiro.ini");
-//        SecurityManager manager = factory.getInstance();
+//        SecurityManager manager = factory.getNewInstance();
 //        SecurityUtils.setSecurityManager(manager);
 //        Subject subject = SecurityUtils.getSubject();
 //        Session session = subject.getSession();
