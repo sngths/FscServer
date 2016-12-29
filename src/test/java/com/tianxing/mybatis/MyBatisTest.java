@@ -52,11 +52,8 @@ public class MyBatisTest {
     public void insert(){
         try (SqlSession session = factory.openSession()){
             UserCreateMapper mapper = session.getMapper(UserCreateMapper.class);
-            User user = new User();
-            user.setUsername("user3");
-            user.setPassword("123456");
-            user.setEmail("");
-            mapper.create(user);
+
+            mapper.create("user3", "123456", "");
         }
     }
 }

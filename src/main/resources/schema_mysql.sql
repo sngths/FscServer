@@ -1,26 +1,24 @@
-# 持久层MySQL数据库表创建
-#
+-- 持久层MySQL数据库表创建
 
 
-# ##################
-# 用户 包括学生和老师用户
-#
-#
-# #################
+
+
+-- 用户 包括学生和老师用户
+
 CREATE TABLE User (
     username              VARCHAR(64)     NOT NULL,
     plainPassword         VARCHAR(32),
     encryptedPassword     VARCHAR(255),
     name                  VARCHAR(100),
     email                 VARCHAR(100),
-    creationDate          CHAR(15)        NOT NULL,
+    creationDate          LONG            NOT NULL,
     modificationDate      CHAR(15)        NOT NULL,
     PRIMARY KEY (username),
     INDEX ofUser_cDate_idx (creationDate)
 );
 
 
-# 班级列表
+-- 班级列表
 
 
 
