@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -18,7 +19,14 @@ public class TimestampTest {
         long time = System.currentTimeMillis();
 
         Timestamp timestamp= new Timestamp(time);
+        LocalDateTime dateTime = timestamp.toLocalDateTime();
         logger.debug(timestamp.toString());
+        logger.debug(String.valueOf(dateTime.getYear()));
+        logger.debug(String.valueOf(dateTime.getMonth().getValue()));
+        logger.debug(String.valueOf(dateTime.getDayOfMonth()));
+        logger.debug(String.valueOf(dateTime.getHour()));
+        logger.debug(String.valueOf(dateTime.getMinute()));
+        logger.debug(String.valueOf(dateTime.getSecond()));
 
     }
 }

@@ -9,5 +9,5 @@ import org.apache.ibatis.annotations.Param;
  */
 public interface UserCreateMapper {
 
-    void create(@Param("username") String username, @Param("password") String password, @Param("email") String email);
+    int create(@Param("username") String username, @Param("password") String password, @Param("email") String email);
 }

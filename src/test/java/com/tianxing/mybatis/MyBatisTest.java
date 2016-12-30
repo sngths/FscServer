@@ -35,7 +35,7 @@ public class MyBatisTest {
         SqlSession session = factory.openSession();
         try {
             UserMapper mapper = session.getMapper(UserMapper.class);
-            User user = mapper.getUser("user1");
+            User user = mapper.getUser("user1").get(0);
             logger.debug(user.getUsername());
             logger.debug(user.getPassword());
             logger.debug(user.getEmail());
@@ -52,8 +52,7 @@ public class MyBatisTest {
     public void insert(){
         try (SqlSession session = factory.openSession()){
             UserCreateMapper mapper = session.getMapper(UserCreateMapper.class);
-
-            mapper.create("user3", "123456", "");
+            logger.debug(String.valueOf(mapper.create("user3", "123456", "")));
         }
     }
 }
