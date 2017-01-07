@@ -219,7 +219,7 @@
     </bytecodeTargetLevel>
   </component>
   <component name="CopyrightManager" default="" />
-  <component name="DataSourceManagerImpl" format="xml" hash="4254560925">
+  <component name="DataSourceManagerImpl" format="xml" hash="2565623720">
     <data-source source="LOCAL" name="MySQL - fsc@172.24.1.1" uuid="915e14f9-b79b-4b09-a79e-4b1ce9168505">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>

@@ -10,6 +10,7 @@ import io.netty.buffer.EmptyByteBuf;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Map;
 
 /**
@@ -49,7 +50,7 @@ public class JacksonTest {
     //
     private void encode(ByteBuf buf) throws IOException {
         ByteBufInputStream inputStream = new ByteBufInputStream(buf);
-        User user = objectMapper.readValue(inputStream, User.class);
+        User user = objectMapper.readValue((InputStream) inputStream, User.class);
     }
 
 
