@@ -1,7 +1,8 @@
 package com.tianxing.config;
 
-import mybatis.mapper.UserMapper;
-import mybatis.pojo.User;
+
+import com.tianxing.database.AssignmentMapper;
+import com.tianxing.database.mapper.UserMapper;
 import org.apache.ibatis.datasource.pooled.PooledDataSource;
 import org.apache.ibatis.jdbc.ScriptRunner;
 import org.apache.ibatis.mapping.Environment;
@@ -70,7 +71,8 @@ public class DataBaseConfig {
         org.apache.ibatis.session.Configuration configuration = new org.apache.ibatis.session.Configuration(environment);
 
         configuration.addMapper(UserMapper.class);
-        configuration.addMapper(mybatis.mapper.UserCreateMapper.class);
+        configuration.addMapper(AssignmentMapper.class);
+        //configuration.addMappers("com.tianxing.database.mapper");
         //配置属性元素 在上下文中使用
         Properties properties;
         if (configuration.getVariables() == null){
@@ -86,8 +88,9 @@ public class DataBaseConfig {
 
         //配置类型别名
         TypeAliasRegistry aliasRegistry = configuration.getTypeAliasRegistry();
-        aliasRegistry.registerAlias("user", User.class);
-        //aliasRegistry.registerAliases("");//扫描包加载别名
+        //aliasRegistry.registerAlias("userInfo", UserInfo.class);
+        aliasRegistry.registerAliases("com.tianxing.database.dao.param");//扫描包加载别名
+        aliasRegistry.registerAliases("com.tianxing.database.dao.result");
 
         //类型处理器
         TypeHandlerRegistry handlerRegistry = configuration.getTypeHandlerRegistry();

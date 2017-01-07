@@ -15,7 +15,7 @@
     </settings>
     <!--定义类别名-->
     <typeAliases>
-        <typeAlias alias="user" type="mybatis.pojo.User"/>
+        <typeAlias alias="userInfo" type="com.tianxing.database.dao.result.UserInfo"/>
         <!--自动扫描-->
         <package id="mybatis.pojo"/>
     </typeAliases>

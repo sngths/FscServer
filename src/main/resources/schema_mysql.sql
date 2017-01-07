@@ -5,18 +5,17 @@
 
 -- 用户 包括学生和老师用户
 
-CREATE TABLE User (
-    username              VARCHAR(64)     NOT NULL,
-    plainPassword         VARCHAR(32),
-    encryptedPassword     VARCHAR(255),
-    name                  VARCHAR(100),
-    email                 VARCHAR(100),
-    creationDate          LONG            NOT NULL,
-    modificationDate      CHAR(15)        NOT NULL,
-    PRIMARY KEY (username),
-    INDEX ofUser_cDate_idx (creationDate)
+CREATE TABLE user (
+  id                    BIGINT AUTO_INCREMENT,
+  username              VARCHAR(64)     NOT NULL, -- 用户名
+  password              VARCHAR(32)     NOT NULL,
+  salt                  CHAR(32),
+  userType              ENUM ('t', 's') NOT NULL,
+  modificationTimestamp BIGINT,
+  creationTimestamp     BIGINT,
+  email                 VARCHAR(100),
+  PRIMARY KEY (id, username)
 );
-
 
 -- 班级列表
 
@@ -31,8 +30,8 @@ CREATE TABLE User (
 
 
 CREATE TABLE IF NOT EXISTS `Users` (
-    `user_id` bigint(20) NOT NULL AUTO_INCREMENT,
-    `id` varchar(200) NOT NULL,
-    PRIMARY KEY (`user_id`)
+  `user_id` BIGINT(20)   NOT NULL AUTO_INCREMENT,
+  `id`      VARCHAR(200) NOT NULL,
+  PRIMARY KEY (`user_id`)
 );
 

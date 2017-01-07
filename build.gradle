@@ -92,7 +92,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-devtools")
     compile("org.springframework.boot:spring-boot-configuration-processor")
     compile 'com.h2database:h2:1.4.193'
-    compile 'org.mybatis:mybatis:3.4.1'
+    compile 'org.mybatis:mybatis:3.4.2'
     compile 'mysql:mysql-connector-java:5.1.25'
     compile 'redis.clients:jedis:2.8.1'
     compile 'io.reactivex:rxjava:1.1.6'
