@@ -1,7 +1,7 @@
 package com.tianxing.config;
 
 
-import com.tianxing.database.AssignmentMapper;
+import com.tianxing.database.mapper.AssignmentMapper;
 import com.tianxing.database.mapper.UserMapper;
 import org.apache.ibatis.datasource.pooled.PooledDataSource;
 import org.apache.ibatis.jdbc.ScriptRunner;
@@ -80,8 +80,8 @@ public class DataBaseConfig {
         }else {
             properties = configuration.getVariables();
         }
-        properties.setProperty("username", "fsc");
-        properties.setProperty("password", "123456");
+        //properties.setProperty("username", "fsc");
+        //properties.setProperty("password", "123456");
         configuration.setVariables(properties);
         //设置
         configuration.setCacheEnabled(true);

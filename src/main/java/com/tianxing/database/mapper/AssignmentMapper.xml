@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.tianxing.database.AssignmentMapper">
-    <select id="insert" resultType="com.tianxing.database.dao.result.UserInfo">
+<mapper namespace="com.tianxing.database.mapper.AssignmentMapper">
+    <select id="select" resultType="userInfo" parameterType="string">
         SELECT * FROM user WHERE username = #{username}
     </select>
 </mapper>

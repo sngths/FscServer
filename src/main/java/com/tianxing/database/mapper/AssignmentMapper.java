@@ -1,4 +1,4 @@
-package com.tianxing.database;
+package com.tianxing.database.mapper;
 
 import com.tianxing.database.dao.result.UserInfo;
 import org.apache.ibatis.annotations.Param;
@@ -9,6 +9,6 @@ import org.apache.ibatis.annotations.Param;
  */
 public interface AssignmentMapper {
 
-    UserInfo insert(@Param("username") String username);
+    UserInfo select(@Param("username") String username);
     
 }
