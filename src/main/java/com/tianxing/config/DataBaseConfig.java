@@ -1,9 +1,11 @@
 package com.tianxing.config;
 
 
+import com.tianxing.database.dao.result.UserInfo;
 import com.tianxing.database.mapper.AssignmentMapper;
 import com.tianxing.database.mapper.UserMapper;
 import org.apache.ibatis.datasource.pooled.PooledDataSource;
+import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.jdbc.ScriptRunner;
 import org.apache.ibatis.mapping.Environment;
 import org.apache.ibatis.session.SqlSession;
@@ -16,13 +18,16 @@ import org.apache.ibatis.type.TypeHandlerRegistry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.test.context.ActiveProfiles;
 
 import javax.sql.DataSource;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
+
+import static org.apache.ibatis.io.Resources.getResourceAsReader;
 
 /**
  * Created by tianxing on 16/10/11.
@@ -33,9 +38,9 @@ import java.util.Properties;
 public class DataBaseConfig {
 
 
-    @Bean
-    @Profile("prod")
-    public DataSource mysqlDataSource(){
+    //@Bean
+    //@Profile("prod")
+    public DataSource mysqlDataSource() {
         //创建数据库连接池
         PooledDataSource dataSource = new PooledDataSource();
         dataSource.setDriver("com.mysql.jdbc.Driver");
@@ -45,23 +50,29 @@ public class DataBaseConfig {
         return dataSource;
     }
 
-
-
     @Bean
     //@Profile("dev")
-    public DataSource embeddedDataSource(){
+    public DataSource embeddedDataSource() {
         return new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.H2)
                 .addScript("classpath:schema_h2.sql")
-                .addScript("classpath:test_data.sql")
+                .addScript("classpath:database/test_data.sql")
                 .build();
     }
 
 
+    public DataSource h2DataSource() {
+        PooledDataSource dataSource = new PooledDataSource();
+        dataSource.setDriver("org.h2.Driver");
+        dataSource.setUrl("jdbc:h2:mem:h2db");
+        dataSource.setUsername("sa");
+        dataSource.setPassword("");
+        return dataSource;
+    }
 
 
     @Bean
     @Autowired
-    public SqlSessionFactory createFactory(DataSource dataSource){
+    public SqlSessionFactory createFactory(DataSource dataSource) {
 
         //创建数据库事务方式
         TransactionFactory transactionFactory = new JdbcTransactionFactory();
@@ -69,55 +80,59 @@ public class DataBaseConfig {
         Environment environment = new Environment("dev", transactionFactory, dataSource);
         //构建配置对象
         org.apache.ibatis.session.Configuration configuration = new org.apache.ibatis.session.Configuration(environment);
-
-        configuration.addMapper(UserMapper.class);
-        configuration.addMapper(AssignmentMapper.class);
-        //configuration.addMappers("com.tianxing.database.mapper");
+        //配置类型别名 要在添加映射类之前 配置别名
+        TypeAliasRegistry aliasRegistry = configuration.getTypeAliasRegistry();
+        aliasRegistry.registerAliases("com.tianxing.database.dao.param");
+        aliasRegistry.registerAliases("com.tianxing.database.dao.result");
+        //添加映射文件
+        configuration.addMappers("com.tianxing.database.mapper");
         //配置属性元素 在上下文中使用
         Properties properties;
-        if (configuration.getVariables() == null){
-             properties = new Properties();
-        }else {
+        if (configuration.getVariables() == null) {
+            properties = new Properties();
+        } else {
             properties = configuration.getVariables();
         }
-        //properties.setProperty("username", "fsc");
-        //properties.setProperty("password", "123456");
+        properties.setProperty("username", "fsc");
+        properties.setProperty("password", "123456");
         configuration.setVariables(properties);
         //设置
         configuration.setCacheEnabled(true);
-
-        //配置类型别名
-        TypeAliasRegistry aliasRegistry = configuration.getTypeAliasRegistry();
-        //aliasRegistry.registerAlias("userInfo", UserInfo.class);
-        aliasRegistry.registerAliases("com.tianxing.database.dao.param");//扫描包加载别名
-        aliasRegistry.registerAliases("com.tianxing.database.dao.result");
-
         //类型处理器
         TypeHandlerRegistry handlerRegistry = configuration.getTypeHandlerRegistry();
-
-
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(configuration);
+        //建表
+
+        return factory;
+    }
+
+
+    //@Bean
+    public SqlSessionFactory createFactoryFromXml() throws IOException {
+        InputStream stream = Resources.getResourceAsStream("mybatis-config-h2.xml");
+        SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(stream);
+        runSqlScript(factory, "schema_h2.sql");
         return factory;
     }
 
 
 
+
+
     /**
-     * 根据SQL文件建表
+     * mybatis执行sql脚本文件
      * */
-    @Autowired
-    private void createTables(SqlSessionFactory factory){
-            SqlSession session = factory.openSession();
+    private void runSqlScript(SqlSessionFactory factory, String filePath) throws IOException {
+        SqlSession session = factory.openSession();
         try {
             ScriptRunner runner = new ScriptRunner(session.getConnection());
             runner.setAutoCommit(true);
             runner.setStopOnError(true);
-            //runner.runScript(getResourceAsReader("schema_mysql.sql"));
+            runner.runScript(getResourceAsReader(filePath));
             runner.closeConnection();
-        }finally {
+        } finally {
             session.close();
         }
-
     }
 
 
