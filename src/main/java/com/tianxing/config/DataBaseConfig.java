@@ -70,7 +70,7 @@ public class DataBaseConfig {
     }
 
 
-    @Bean
+    @Bean(name = "sqlSessionFactory")
     @Autowired
     public SqlSessionFactory createFactory(DataSource dataSource) {
 
@@ -87,12 +87,7 @@ public class DataBaseConfig {
         //添加映射文件
         configuration.addMappers("com.tianxing.database.mapper");
         //配置属性元素 在上下文中使用
-        Properties properties;
-        if (configuration.getVariables() == null) {
-            properties = new Properties();
-        } else {
-            properties = configuration.getVariables();
-        }
+        Properties properties = configuration.getVariables();
         properties.setProperty("username", "fsc");
         properties.setProperty("password", "123456");
         configuration.setVariables(properties);

@@ -1,6 +1,7 @@
 package com.tianxing.database.mapper;
 
 import com.tianxing.database.dao.result.UserInfo;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
@@ -12,30 +13,44 @@ public interface UserMapper {
 
     /**
      * 根据用户ID查询到用户信息
-     * */
+     */
     @Select("SELECT * FROM user WHERE id = #{id}")
     UserInfo getUserInfoByID(Long id);
 
 
     /**
      * 根据用户名查询到一条用户信息
-     * */
+     */
     @Select("SELECT * FROM user WHERE username = #{username}")
     UserInfo getUserInfoByName(String username);
 
 
-
+    /**
+     * 创建一个用户
+     * @param userType "s"表示学生用户 "t"表示老师用户
+     */
+    int createUser(@Param("username") String username, @Param("password") String password, @Param("userType") String userType);
 
 
 
     /**
-     * 创建一个学生用户
+     * 创建一个班级
      * */
-    int createStudent(@Param("username") String username, @Param("password") String password);
+    @Insert("INSERT INTO classInfo (class, grade, name, info) VALUES (#{class}, #{grade}, #{name}, #{info})")
+    int createClass(@Param("class") int Class, @Param("grade") int grade, @Param("name") String name ,@Param("info") String info);
+
 
     /**
-     * 创建一个老师用户
+     * 查询一个班级的信息
      * */
-    int createTeacher(@Param("username") String username, @Param("password") String password);
 
+
+    /**
+     * 学生添加班级
+     * */
+
+
+    /**
+     * 老师添加班级
+     * */
 }

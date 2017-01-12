@@ -131,6 +131,7 @@ public class DisruptorTest {
     /***
      * 启动入口
      * */
+    @SuppressWarnings("unchecked")
     public void start(){
         Executor executor = Executors.newCachedThreadPool();
         ThreadFactory threadFactory = new DefaultThreadFactory("factory");

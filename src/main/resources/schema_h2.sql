@@ -13,6 +13,8 @@ CREATE TABLE user (
 --班级相关
 CREATE TABLE classInfo (
   id   INT AUTO_INCREMENT,
+  class TINYINT NOT NULL,
+  grade TINYINT NOT NULL,
   name VARCHAR(50) NOT NULL,
   info TEXT,
   PRIMARY KEY (id)
@@ -25,7 +27,6 @@ CREATE TABLE studentClass (
   timestamp BIGINT, -- 添加时间戳
   PRIMARY KEY (userID)
 );
-
 --添加学生班级索引
 CREATE INDEX studentClassIndex ON studentClass (classID);
 
@@ -40,6 +41,12 @@ CREATE TABLE teacherClass (
 );
 --添加老师班级索引
 CREATE INDEX teacherClassIndex ON teacherClass (userID, classID);
+
+
+
+
+
+
 
 --离线消息 保存发送给单个用户的离线消息
 CREATE TABLE offlineMessage (
