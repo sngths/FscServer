@@ -29,7 +29,7 @@ public interface UserMapper {
      * 创建一个用户
      * @param userType "s"表示学生用户 "t"表示老师用户
      */
-    int createUser(@Param("username") String username, @Param("password") String password, @Param("userType") String userType);
+    int createUser(@Param("id") Integer id,@Param("username") String username, @Param("password") String password, @Param("userType") String userType);
 
 
 

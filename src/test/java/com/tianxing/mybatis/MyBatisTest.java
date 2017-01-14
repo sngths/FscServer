@@ -37,18 +37,31 @@ public class MyBatisTest {
             logger.debug(userInfo.getPassword());
             logger.debug(userInfo.getEmail());
             session.commit();
-        } finally {
+        } catch (Exception e){
+            session.rollback();
+        }finally {
             session.close();
         }
-
     }
 
 
+    /**
+     * 创建一个用户
+     * */
     @Test
-    public void insert() {
-        try (SqlSession session = factory.openSession()) {
+    public void insertUser() {
+        SqlSession session = factory.openSession();
+        try {
             UserMapper mapper = session.getMapper(UserMapper.class);
-            logger.debug(String.valueOf(mapper.createUser("user3", "123456", "s")));
+            Integer id  = -1;
+            logger.debug(String.valueOf(mapper.createUser(id, "user3", "123456", "s")));
+            logger.debug(String.valueOf(id));
+            session.commit();
+        }catch (Exception e){
+            e.printStackTrace();
+            session.rollback();
+        }finally {
+            session.close();
         }
     }
 
@@ -57,14 +70,18 @@ public class MyBatisTest {
      * */
     @Test
     public void createClass(){
-        try (SqlSession session = factory.openSession()){
+        SqlSession session = factory.openSession();
+        try {
             UserMapper mapper = session.getMapper(UserMapper.class);
             int a = mapper.createClass(1,3,"一年级三班", null);
             logger.error(String.valueOf(a));
             session.commit();
             logger.error(String.valueOf(a));
         } catch (Exception e){
+            session.rollback();
             e.printStackTrace();
+        }finally {
+            session.close();
         }
     }
 

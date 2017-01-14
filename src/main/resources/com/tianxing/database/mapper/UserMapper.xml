@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tianxing.database.mapper.UserMapper">
-    <insert id="createUser">
-        INSERT INTO user (username, password, userType)
-        VALUES (#{username}, #{password}, #{userType})
+    <insert id="createUser" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO user (id, username, password, userType)
+        VALUES (#{id}, #{username}, #{password}, #{userType})
     </insert>
 
 

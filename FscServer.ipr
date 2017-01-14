@@ -98,6 +98,7 @@
             <element id="library" level="project" name="Gradle: org.ow2.asm:asm:5.0.3" />
             <element id="library" level="project" name="Gradle: org.apache.httpcomponents:httpcore:4.4.5" />
             <element id="library" level="project" name="Gradle: commons-codec:commons-codec:1.10" />
+            <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mybatis/mybatis-spring/1.1.0/6485a3e33a3a67d66b6af905395f73413ee2842/mybatis-spring-1.1.0.jar" />
           </element>
         </element>
         <element id="directory" name="META-INF">
@@ -202,6 +203,7 @@
             <element id="library" level="project" name="Gradle: org.ow2.asm:asm:5.0.3" />
             <element id="library" level="project" name="Gradle: org.apache.httpcomponents:httpcore:4.4.5" />
             <element id="library" level="project" name="Gradle: commons-codec:commons-codec:1.10" />
+            <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mybatis/mybatis-spring/1.1.0/6485a3e33a3a67d66b6af905395f73413ee2842/mybatis-spring-1.1.0.jar" />
           </element>
         </element>
         <element id="directory" name="META-INF">
@@ -863,6 +865,15 @@
       <JAVADOC />
       <SOURCES>
         <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mockito/mockito-core/1.10.19/8269667b73d9616600359a9b0ba1b1c7d0cf7a97/mockito-core-1.10.19-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: org.mybatis:mybatis-spring:1.1.0">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mybatis/mybatis-spring/1.1.0/6485a3e33a3a67d66b6af905395f73413ee2842/mybatis-spring-1.1.0.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mybatis/mybatis-spring/1.1.0/14ea3b33aafb9feb7d4b1148734d20f4f49fc127/mybatis-spring-1.1.0-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Gradle: org.mybatis:mybatis:3.4.2">
