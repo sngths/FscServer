@@ -9,6 +9,7 @@ import org.apache.shiro.subject.PrincipalCollection;
 
 /**
  * Created by tianxing on 16/10/11.
+ *
  */
 public class ShiroJDBCRealm extends AuthorizingRealm {
 

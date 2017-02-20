@@ -81,6 +81,11 @@ compileTestJava {
     //options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
 }
 
+task copyJars(type: Copy) {
+    from configurations.runtime
+    into 'src/libs' // 目标位置
+}
+
 repositories {
     jcenter()
     mavenCentral()
@@ -121,6 +126,8 @@ dependencies {
     //compile 'org.hibernate:hibernate-core:5.2.0.Final'
 
     compile 'io.netty:netty-all:4.1.6.Final'
+
+    compile 'org.apache.zookeeper:zookeeper:3.4.5'
 
     compile 'com.lmax:disruptor:3.3.6'
 
