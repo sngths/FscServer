@@ -44,7 +44,15 @@ public class UtilTest {
 
 
 
+    @Test
     public void test(){
         Date date = new Date();
+        try {
+            Class a = Class.forName("java.util.Date");
+            System.out.print(a.getModifiers());
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
     }
 }
