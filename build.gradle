@@ -36,6 +36,7 @@ jar {
 war {
     baseName = 'com.tianxing.fsc-server'
     version = '0.1.0'
+
 }
 
 
@@ -81,6 +82,8 @@ compileTestJava {
     //options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
 }
 
+
+//导出gradle中的依赖包
 task copyJars(type: Copy) {
     from configurations.runtime
     into 'src/libs' // 目标位置
@@ -95,6 +98,7 @@ repositories {
 }
 
 configurations {
+
     providedRuntime
 }
 
