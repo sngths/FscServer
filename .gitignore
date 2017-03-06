@@ -53,4 +53,4 @@ gradle-app.setting
 
 # Cache of project
 .gradletasknamecache
-src/libs/
+src/libs/redis-3.2.8/
