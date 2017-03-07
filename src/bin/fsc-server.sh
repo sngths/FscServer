@@ -1,5 +1,4 @@
 #!/bin/bash
-#fscServer控制脚本
 
 SERVER=./com.tianxing.fsc-server-0.1.0.war
 PIDFILE=./server.pid
