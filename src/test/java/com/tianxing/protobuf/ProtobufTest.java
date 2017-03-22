@@ -14,6 +14,7 @@ public class ProtobufTest {
         Testentity.aaa aaa  = Testentity.aaa.newBuilder().setAasa("aaa").build();
         Testentity.aaa aaa1 = Testentity.aaa.parseFrom(aaa.toByteArray());
         System.out.println(aaa1.getAasa());
+        int[] ss = new int[1024];
     }
 
 }

@@ -9,20 +9,20 @@ CONFIG=./
 exec 1>>server.info
 case $1 in
 	start ) 
-        nohup java -jar $SERVER &
+        nohup java -jar ${SERVER} &
 		;;
 	 stop ) 
-        if [ -f $PIDFILE ]; then
+        if [ -f ${PIDFILE} ]; then
             pid=$(cat ./server.pid)
-            kill $pid
-            rm $PIDFILE
+            kill ${pid}
+            rm ${PIDFILE}
             echo "服务端已关闭"
         else
             echo "服务未启动"
         fi
         ;;
    status ) 
-if [ ! -f $PIDFILE ]; then
+if [ ! -f ${PIDFILE} ]; then
     echo "服务端未启动"
    # else
     #    if [ ! -x /proc/${$(cat $PIDFILE)} ]; then
@@ -40,7 +40,7 @@ esac
 
 pid=$!
 
-echo "$pid" >$PIDFILE
+echo "$pid" >${PIDFILE}
 
 
 #trap "执行完成" EXIT

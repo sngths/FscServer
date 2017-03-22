@@ -29,6 +29,29 @@ public final class Testentity {
         getAasaBytes();
 
     /**
+     * <code>string asddf = 2;</code>
+     */
+    java.lang.String getAsddf();
+    /**
+     * <code>string asddf = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getAsddfBytes();
+
+    /**
+     * <code>repeated int32 asd = 3;</code>
+     */
+    java.util.List<java.lang.Integer> getAsdList();
+    /**
+     * <code>repeated int32 asd = 3;</code>
+     */
+    int getAsdCount();
+    /**
+     * <code>repeated int32 asd = 3;</code>
+     */
+    int getAsd(int index);
+
+    /**
      * <code>map&lt;string, string&gt; amap = 5;</code>
      */
     int getAmapCount();
@@ -75,6 +98,8 @@ public final class Testentity {
     }
     private aaa() {
       aasa_ = "";
+      asddf_ = "";
+      asd_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -108,11 +133,38 @@ public final class Testentity {
               aasa_ = s;
               break;
             }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              asddf_ = s;
+              break;
+            }
+            case 24: {
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                asd_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              asd_.add(input.readInt32());
+              break;
+            }
+            case 26: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004) && input.getBytesUntilLimit() > 0) {
+                asd_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                asd_.add(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
             case 42: {
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
                 amap_ = com.google.protobuf.MapField.newMapField(
                     AmapDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000002;
+                mutable_bitField0_ |= 0x00000008;
               }
               com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
               amap__ = input.readMessage(
@@ -129,6 +181,9 @@ public final class Testentity {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          asd_ = java.util.Collections.unmodifiableList(asd_);
+        }
         makeExtensionsImmutable();
       }
     }
@@ -292,6 +347,63 @@ public final class Testentity {
       }
     }
 
+    public static final int ASDDF_FIELD_NUMBER = 2;
+    private volatile java.lang.Object asddf_;
+    /**
+     * <code>string asddf = 2;</code>
+     */
+    public java.lang.String getAsddf() {
+      java.lang.Object ref = asddf_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        asddf_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string asddf = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAsddfBytes() {
+      java.lang.Object ref = asddf_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        asddf_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ASD_FIELD_NUMBER = 3;
+    private java.util.List<java.lang.Integer> asd_;
+    /**
+     * <code>repeated int32 asd = 3;</code>
+     */
+    public java.util.List<java.lang.Integer>
+        getAsdList() {
+      return asd_;
+    }
+    /**
+     * <code>repeated int32 asd = 3;</code>
+     */
+    public int getAsdCount() {
+      return asd_.size();
+    }
+    /**
+     * <code>repeated int32 asd = 3;</code>
+     */
+    public int getAsd(int index) {
+      return asd_.get(index);
+    }
+    private int asdMemoizedSerializedSize = -1;
+
     public static final int AMAP_FIELD_NUMBER = 5;
     private static final class AmapDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
@@ -380,8 +492,19 @@ public final class Testentity {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      getSerializedSize();
       if (!getAasaBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, aasa_);
+      }
+      if (!getAsddfBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, asddf_);
+      }
+      if (getAsdList().size() > 0) {
+        output.writeUInt32NoTag(26);
+        output.writeUInt32NoTag(asdMemoizedSerializedSize);
+      }
+      for (int i = 0; i < asd_.size(); i++) {
+        output.writeInt32NoTag(asd_.get(i));
       }
       com.google.protobuf.GeneratedMessageV3
         .serializeStringMapTo(
@@ -398,6 +521,23 @@ public final class Testentity {
       size = 0;
       if (!getAasaBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, aasa_);
+      }
+      if (!getAsddfBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, asddf_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < asd_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt32SizeNoTag(asd_.get(i));
+        }
+        size += dataSize;
+        if (!getAsdList().isEmpty()) {
+          size += 1;
+          size += com.google.protobuf.CodedOutputStream
+              .computeInt32SizeNoTag(dataSize);
+        }
+        asdMemoizedSerializedSize = dataSize;
       }
       for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
            : internalGetAmap().getMap().entrySet()) {
@@ -427,6 +567,10 @@ public final class Testentity {
       boolean result = true;
       result = result && getAasa()
           .equals(other.getAasa());
+      result = result && getAsddf()
+          .equals(other.getAsddf());
+      result = result && getAsdList()
+          .equals(other.getAsdList());
       result = result && internalGetAmap().equals(
           other.internalGetAmap());
       return result;
@@ -441,6 +585,12 @@ public final class Testentity {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + AASA_FIELD_NUMBER;
       hash = (53 * hash) + getAasa().hashCode();
+      hash = (37 * hash) + ASDDF_FIELD_NUMBER;
+      hash = (53 * hash) + getAsddf().hashCode();
+      if (getAsdCount() > 0) {
+        hash = (37 * hash) + ASD_FIELD_NUMBER;
+        hash = (53 * hash) + getAsdList().hashCode();
+      }
       if (!internalGetAmap().getMap().isEmpty()) {
         hash = (37 * hash) + AMAP_FIELD_NUMBER;
         hash = (53 * hash) + internalGetAmap().hashCode();
@@ -587,6 +737,10 @@ public final class Testentity {
         super.clear();
         aasa_ = "";
 
+        asddf_ = "";
+
+        asd_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000004);
         internalGetMutableAmap().clear();
         return this;
       }
@@ -613,6 +767,12 @@ public final class Testentity {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         result.aasa_ = aasa_;
+        result.asddf_ = asddf_;
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          asd_ = java.util.Collections.unmodifiableList(asd_);
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.asd_ = asd_;
         result.amap_ = internalGetAmap();
         result.amap_.makeImmutable();
         result.bitField0_ = to_bitField0_;
@@ -659,6 +819,20 @@ public final class Testentity {
         if (other == com.tianxing.entity.Testentity.aaa.getDefaultInstance()) return this;
         if (!other.getAasa().isEmpty()) {
           aasa_ = other.aasa_;
+          onChanged();
+        }
+        if (!other.getAsddf().isEmpty()) {
+          asddf_ = other.asddf_;
+          onChanged();
+        }
+        if (!other.asd_.isEmpty()) {
+          if (asd_.isEmpty()) {
+            asd_ = other.asd_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+          } else {
+            ensureAsdIsMutable();
+            asd_.addAll(other.asd_);
+          }
           onChanged();
         }
         internalGetMutableAmap().mergeFrom(
@@ -755,6 +929,141 @@ public final class Testentity {
   checkByteStringIsUtf8(value);
         
         aasa_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object asddf_ = "";
+      /**
+       * <code>string asddf = 2;</code>
+       */
+      public java.lang.String getAsddf() {
+        java.lang.Object ref = asddf_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          asddf_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string asddf = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAsddfBytes() {
+        java.lang.Object ref = asddf_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          asddf_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string asddf = 2;</code>
+       */
+      public Builder setAsddf(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        asddf_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string asddf = 2;</code>
+       */
+      public Builder clearAsddf() {
+        
+        asddf_ = getDefaultInstance().getAsddf();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string asddf = 2;</code>
+       */
+      public Builder setAsddfBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        asddf_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<java.lang.Integer> asd_ = java.util.Collections.emptyList();
+      private void ensureAsdIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          asd_ = new java.util.ArrayList<java.lang.Integer>(asd_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+      /**
+       * <code>repeated int32 asd = 3;</code>
+       */
+      public java.util.List<java.lang.Integer>
+          getAsdList() {
+        return java.util.Collections.unmodifiableList(asd_);
+      }
+      /**
+       * <code>repeated int32 asd = 3;</code>
+       */
+      public int getAsdCount() {
+        return asd_.size();
+      }
+      /**
+       * <code>repeated int32 asd = 3;</code>
+       */
+      public int getAsd(int index) {
+        return asd_.get(index);
+      }
+      /**
+       * <code>repeated int32 asd = 3;</code>
+       */
+      public Builder setAsd(
+          int index, int value) {
+        ensureAsdIsMutable();
+        asd_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 asd = 3;</code>
+       */
+      public Builder addAsd(int value) {
+        ensureAsdIsMutable();
+        asd_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 asd = 3;</code>
+       */
+      public Builder addAllAsd(
+          java.lang.Iterable<? extends java.lang.Integer> values) {
+        ensureAsdIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, asd_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 asd = 3;</code>
+       */
+      public Builder clearAsd() {
+        asd_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -950,10 +1259,11 @@ public final class Testentity {
   static {
     java.lang.String[] descriptorData = {
       "\n\020testentity.proto\022\023com.tianxing.entity\"" +
-      "\215\001\n\003aaa\022\014\n\004aasa\030\001 \001(\t\0220\n\004amap\030\005 \003(\0132\".co" +
-      "m.tianxing.entity.aaa.AmapEntry\032+\n\tAmapE" +
-      "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\031\n\005" +
-      "asdds\022\007\n\003ASD\020\000\022\007\n\003ASF\020\001b\006proto3"
+      "\251\001\n\003aaa\022\014\n\004aasa\030\001 \001(\t\022\r\n\005asddf\030\002 \001(\t\022\013\n\003" +
+      "asd\030\003 \003(\005\0220\n\004amap\030\005 \003(\0132\".com.tianxing.e" +
+      "ntity.aaa.AmapEntry\032+\n\tAmapEntry\022\013\n\003key\030" +
+      "\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\031\n\005asdds\022\007\n\003ASD" +
+      "\020\000\022\007\n\003ASF\020\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -972,7 +1282,7 @@ public final class Testentity {
     internal_static_com_tianxing_entity_aaa_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_tianxing_entity_aaa_descriptor,
-        new java.lang.String[] { "Aasa", "Amap", });
+        new java.lang.String[] { "Aasa", "Asddf", "Asd", "Amap", });
     internal_static_com_tianxing_entity_aaa_AmapEntry_descriptor =
       internal_static_com_tianxing_entity_aaa_descriptor.getNestedTypes().get(0);
     internal_static_com_tianxing_entity_aaa_AmapEntry_fieldAccessorTable = new
