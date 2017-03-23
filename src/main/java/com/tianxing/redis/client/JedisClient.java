@@ -5,6 +5,8 @@ import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetEncoder;
@@ -34,18 +36,7 @@ public class JedisClient implements RedisClient {
     }
 
 
-    public void set(){
-        try (Jedis jedis = pool.getResource()) {
 
-            jedis.dbSize();
-
-
-            jedis.set("", "", "");
-        }
-
-
-
-    }
 
 
     @Override
@@ -56,18 +47,48 @@ public class JedisClient implements RedisClient {
 
 
 
+    private byte[] encodingUTF_8(String string){
+        return null;
+    }
 
+
+
+
+    /**
+     * String类型
+     * */
     private void string(){
         try (Jedis jedis = pool.getResource()){
-            jedis.get("");
-            jedis.set("", "", "");
+            jedis.set("string", "value");
+            jedis.get("string");
+
+            OutputStream outputStream;
 
             String a = "";
-            a.getBytes("UTF-8");
+            byte b[] = a.getBytes("UTF-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
     }
+
+    /**
+     * HashMap类型
+     * */
+    private void hashMap(){
+
+    }
+
+    /**
+     * Set类型
+     * */
+
+    /**
+     * List类型
+     * */
+
+    /**
+     * Sorted Set类型
+     * */
 
 
 }

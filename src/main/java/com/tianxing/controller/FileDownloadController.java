@@ -1,6 +1,7 @@
 package com.tianxing.controller;
 
 
+import net.coobird.thumbnailator.Thumbnails;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +23,7 @@ public class FileDownloadController {
      * 图片下载
      * */
     @RequestMapping(value = "image/{imageName:.+}", method = RequestMethod.GET)
-    public void imgageDownload(@PathVariable(value = "imageName") String imageName, HttpServletRequest request, HttpServletResponse response){
+    public void imageDownload(@PathVariable(value = "imageName") String imageName, HttpServletRequest request, HttpServletResponse response){
         //response.addHeader("Content-Type", "image/jpeg");
 
         response.setContentType(MediaType.IMAGE_JPEG_VALUE);
@@ -44,6 +45,7 @@ public class FileDownloadController {
     /**
      * 文件下载
      * */
+
 
 
 

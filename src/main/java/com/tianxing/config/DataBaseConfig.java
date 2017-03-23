@@ -18,6 +18,7 @@ import org.apache.ibatis.type.TypeHandlerRegistry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.test.context.ActiveProfiles;
@@ -35,6 +36,7 @@ import static org.apache.ibatis.io.Resources.getResourceAsReader;
  */
 @Configuration
 @ActiveProfiles("dev")
+//@PropertySource("PATH_app.properties") //声明属性源
 public class DataBaseConfig {
 
 
