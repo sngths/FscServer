@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * Created by tianxing on 16/10/26.
+ * 发送给客户端的作业类
  */
 public class AssignmentSend {
 

@@ -8,8 +8,10 @@ import redis.clients.jedis.JedisPoolConfig;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
+import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetEncoder;
+import java.nio.charset.StandardCharsets;
 
 /**
  * Created by tianxing on 2017/3/7.
@@ -33,6 +35,7 @@ public class JedisClient implements RedisClient {
         config.setTestOnBorrow(true);
         config.setTestWhileIdle(true);
         pool = new JedisPool(config, host, port);
+
     }
 
 
@@ -48,7 +51,7 @@ public class JedisClient implements RedisClient {
 
 
     private byte[] encodingUTF_8(String string){
-        return null;
+        return string.getBytes(StandardCharsets.UTF_8);
     }
 
 
@@ -62,8 +65,6 @@ public class JedisClient implements RedisClient {
             jedis.set("string", "value");
             jedis.get("string");
 
-            OutputStream outputStream;
-
             String a = "";
             byte b[] = a.getBytes("UTF-8");
         } catch (UnsupportedEncodingException e) {
@@ -75,12 +76,21 @@ public class JedisClient implements RedisClient {
      * HashMap类型
      * */
     private void hashMap(){
+        ByteBuffer buffer = ByteBuffer.allocate(100);
+        try (Jedis jedis = pool.getResource()){
+
+        }
 
     }
 
     /**
      * Set类型
      * */
+    private void set(){
+        try(Jedis jedis = pool.getResource()) {
+            jedis.sadd(encodingUTF_8(""), encodingUTF_8(""));
+        }
+    }
 
     /**
      * List类型

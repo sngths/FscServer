@@ -1,6 +1,7 @@
 syntax = "proto3";
 package com.tianxing.entity;
 
+
 message mMessage{
     string string1 = 1;
 

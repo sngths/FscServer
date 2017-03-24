@@ -1,2 +1,25 @@
 syntax = "proto3";
 package com.tianxing.entity;
+
+
+message file{
+    string name = 1;
+    string url = 2;
+    int32 date = 3;
+    uint64 size = 4;
+}
+
+message image{
+    string name = 1;
+    string url = 2;
+    int32 date = 3;
+    uint64 size = 4;
+    string thumbnailUrl = 5;
+    int32 height  = 6;
+    int32 width = 7;
+    int32 thumbnailHeight  = 8;
+    int32 thumbnailWidth = 9;
+}
+
+
+
