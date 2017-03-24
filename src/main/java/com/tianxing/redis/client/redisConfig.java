@@ -6,7 +6,6 @@ package com.tianxing.redis.client;
  */
 public class RedisConfig {
 
-
     private String host;
     private int port;
     private int maxTotal;
@@ -95,6 +94,11 @@ public class RedisConfig {
             config.setMinIdle(DEFAULT_MIN_IDLE);
             return config;
         }
+    }
+
+
+    public static Builder builder(){
+        return new Builder();
     }
 
     protected void setHost(String host) {

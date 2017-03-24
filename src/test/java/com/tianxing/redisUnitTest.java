@@ -1,5 +1,7 @@
 package com.tianxing;
 
+import com.tianxing.redis.client.RedisConfig;
+import org.junit.Assert;
 import org.junit.Test;
 import redis.clients.jedis.HostAndPort;
 import redis.clients.jedis.Jedis;
@@ -47,8 +49,30 @@ public class redisUnitTest {
         }catch (BufferOverflowException e){
 
         }
+    }
 
 
+    @Test
+    public void redisConfigTest(){
+        RedisConfig config = RedisConfig.builder().buildDefault();
+        assert config.getHost().equals("127.0.0.1");
+        assert config.getPort() == 6379;
+        assert config.getMaxIdle() == 3;
+        assert config.getMaxTotal() == 5;
+        assert config.getMinIdle() == 1;
+
+        RedisConfig conf = RedisConfig.builder()
+                .setHost("localhost")
+                .setPort(1234)
+                .setMaxTotal(10)
+                .setMaxIdle(5)
+                .setMinIdle(1)
+                .build();
+        assert conf.getHost().equals("localhost");
+        assert conf.getPort() == 1234;
+        assert conf.getMaxTotal() == 10;
+        assert conf.getMaxIdle() == 5;
+        assert conf.getMinIdle() == 1;
     }
 
 }
