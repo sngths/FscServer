@@ -5,36 +5,30 @@ import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
-import java.nio.charset.Charset;
-import java.nio.charset.CharsetEncoder;
 import java.nio.charset.StandardCharsets;
 
 /**
  * Created by tianxing on 2017/3/7.
  * jedis操作接口 使用连接池处理请求
  */
-public class JedisClient implements RedisClient {
+public class JedisStorageClient implements RedisClient {
 
 
     private final JedisPool pool;
 
 
-    public JedisClient(String host, int port) {
-        this(host, port, 5);
+    public JedisStorageClient() {
+        this(RedisConfig.builder().buildDefault());
     }
 
-    public JedisClient(String host, int port, int max) {
-        JedisPoolConfig config = new JedisPoolConfig();
-        config.setMaxTotal(max);
-        config.setMaxIdle(3);
-        config.setMinIdle(1);
-        config.setTestOnBorrow(true);
-        config.setTestWhileIdle(true);
-        pool = new JedisPool(config, host, port);
+    public JedisStorageClient(RedisConfig config) {
+        JedisPoolConfig poolConfig = new JedisPoolConfig();
+        poolConfig.setMaxTotal(config.getMaxTotal());
+        poolConfig.setMaxIdle(config.getMaxIdle());
+        poolConfig.setMinIdle(config.getMinIdle());
+        pool = new JedisPool(poolConfig, config.getHost(), config.getPort());
 
     }
 

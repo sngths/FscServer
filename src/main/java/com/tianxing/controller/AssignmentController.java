@@ -1,6 +1,6 @@
 package com.tianxing.controller;
 
-import com.tianxing.data.AssignmentPool;
+import com.tianxing.data.assignment.AssignmentPool;
 import com.tianxing.data.account.AccountManager;
 import com.tianxing.data.session.Session;
 import com.tianxing.data.session.SessionManager;

@@ -26,6 +26,7 @@
             <element id="library" level="project" name="Gradle: org.mybatis:mybatis:3.4.2" />
             <element id="library" level="project" name="Gradle: org.mybatis:mybatis-spring:1.1.0" />
             <element id="library" level="project" name="Gradle: mysql:mysql-connector-java:5.1.25" />
+            <element id="library" level="project" name="Gradle: redis.clients:jedis:2.9.0" />
             <element id="library" level="project" name="Gradle: io.reactivex:rxjava:1.1.6" />
             <element id="library" level="project" name="Gradle: io.netty:netty-all:4.1.6.Final" />
             <element id="library" level="project" name="Gradle: org.apache.zookeeper:zookeeper:3.4.5" />
@@ -103,7 +104,6 @@
             <element id="library" level="project" name="Gradle: org.ow2.asm:asm:5.0.3" />
             <element id="library" level="project" name="Gradle: org.apache.httpcomponents:httpcore:4.4.5" />
             <element id="library" level="project" name="Gradle: commons-codec:commons-codec:1.10" />
-            <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/redis.clients/jedis/2.9.0/292bc9cc26553acd3cccc26f2f95620bf88a04c2/jedis-2.9.0.jar" />
           </element>
         </element>
         <element id="directory" name="META-INF">
@@ -136,6 +136,7 @@
             <element id="library" level="project" name="Gradle: org.mybatis:mybatis:3.4.2" />
             <element id="library" level="project" name="Gradle: org.mybatis:mybatis-spring:1.1.0" />
             <element id="library" level="project" name="Gradle: mysql:mysql-connector-java:5.1.25" />
+            <element id="library" level="project" name="Gradle: redis.clients:jedis:2.9.0" />
             <element id="library" level="project" name="Gradle: io.reactivex:rxjava:1.1.6" />
             <element id="library" level="project" name="Gradle: io.netty:netty-all:4.1.6.Final" />
             <element id="library" level="project" name="Gradle: org.apache.zookeeper:zookeeper:3.4.5" />
@@ -213,7 +214,6 @@
             <element id="library" level="project" name="Gradle: org.ow2.asm:asm:5.0.3" />
             <element id="library" level="project" name="Gradle: org.apache.httpcomponents:httpcore:4.4.5" />
             <element id="library" level="project" name="Gradle: commons-codec:commons-codec:1.10" />
-            <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/redis.clients/jedis/2.9.0/292bc9cc26553acd3cccc26f2f95620bf88a04c2/jedis-2.9.0.jar" />
           </element>
         </element>
         <element id="directory" name="META-INF">
@@ -720,6 +720,24 @@
         <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/mysql/mysql-connector-java/5.1.25/d840b64e0124b807d960128a982a4581a1c931bd/mysql-connector-java-5.1.25-sources.jar!/" />
       </SOURCES>
     </library>
+    <library name="Gradle: net.bytebuddy:byte-buddy-agent:1.6.11">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.6.11/200d9c012befccd211ff91082a151257b1dc084/byte-buddy-agent-1.6.11.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.6.11/8bb73b30fa9cfbd4cf0a620879d3b165d28505c/byte-buddy-agent-1.6.11-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: net.bytebuddy:byte-buddy:1.6.11">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy/1.6.11/8a8f9409e27f1d62c909c7eef2aa7b3a580b4901/byte-buddy-1.6.11.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy/1.6.11/b42c0e66af8ca96486469c21a332d70d5db2f3e0/byte-buddy-1.6.11-sources.jar!/" />
+      </SOURCES>
+    </library>
     <library name="Gradle: net.coobird:thumbnailator:0.4.8">
       <CLASSES>
         <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.coobird/thumbnailator/0.4.8/4f10c440dd7776630aee9da4611a45032db1e041/thumbnailator-0.4.8.jar!/" />
@@ -990,6 +1008,15 @@
         <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mockito/mockito-core/1.10.19/8269667b73d9616600359a9b0ba1b1c7d0cf7a97/mockito-core-1.10.19-sources.jar!/" />
       </SOURCES>
     </library>
+    <library name="Gradle: org.mockito:mockito-core:2.7.19">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mockito/mockito-core/2.7.19/9e0dbe97eca58ef4c26e3b9e1a12ee42e76a63a5/mockito-core-2.7.19.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mockito/mockito-core/2.7.19/779808ba5483c462a585bb5d8be8e0e402abff9f/mockito-core-2.7.19-sources.jar!/" />
+      </SOURCES>
+    </library>
     <library name="Gradle: org.mybatis:mybatis-spring:1.1.0">
       <CLASSES>
         <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mybatis/mybatis-spring/1.1.0/6485a3e33a3a67d66b6af905395f73413ee2842/mybatis-spring-1.1.0.jar!/" />
@@ -1015,6 +1042,15 @@
       <JAVADOC />
       <SOURCES>
         <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.objenesis/objenesis/2.1/611a57d836e2c320d59f9851d4ad587f3c8472e/objenesis-2.1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Gradle: org.objenesis:objenesis:2.5">
+      <CLASSES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.objenesis/objenesis/2.5/612ecb799912ccf77cba9b3ed8c813da086076e9/objenesis-2.5.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.objenesis/objenesis/2.5/e2b450699731118d1498645e36577371afced20f/objenesis-2.5-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Gradle: org.ow2.asm:asm:5.0.3">

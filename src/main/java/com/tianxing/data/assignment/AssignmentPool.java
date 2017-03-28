@@ -1,4 +1,4 @@
-package com.tianxing.data;
+package com.tianxing.data.assignment;
 
 import com.tianxing.data.account.AccountManager;
 import com.tianxing.entity.info.StudentInfo;

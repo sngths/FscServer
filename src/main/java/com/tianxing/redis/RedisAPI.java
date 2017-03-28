@@ -6,6 +6,8 @@ package com.tianxing.redis;
  */
 public interface RedisAPI {
 
+
+
     /**
      * String类型
      * */

@@ -69,3 +69,33 @@
 36996:M 24 Mar 16:14:04.063 * Background saving started by pid 57896
 57896:C 24 Mar 16:14:04.070 * DB saved on disk
 36996:M 24 Mar 16:14:04.164 * Background saving terminated with success
+36996:M 27 Mar 08:16:57.676 * 1 changes in 900 seconds. Saving...
+36996:M 27 Mar 08:16:57.680 * Background saving started by pid 61203
+61203:C 27 Mar 08:16:57.688 * DB saved on disk
+36996:M 27 Mar 08:16:57.781 * Background saving terminated with success
+36996:M 27 Mar 08:21:43.306 # User requested shutdown...
+36996:M 27 Mar 08:21:43.306 * Saving the final RDB snapshot before exiting.
+36996:M 27 Mar 08:21:43.308 * DB saved on disk
+36996:M 27 Mar 08:21:43.308 * Removing the pid file.
+36996:M 27 Mar 08:21:43.308 # Redis is now ready to exit, bye bye...
+                _._                                                  
+           _.-``__ ''-._                                             
+      _.-``    `.  `_.  ''-._           Redis 3.2.8 (0c86035c/1) 64 bit
+  .-`` .-```.  ```\/    _.,_ ''-._                                   
+ (    '      ,       .-`  | `,    )     Running in standalone mode
+ |`-._`-...-` __...-.``-._|'` _.-'|     Port: 6379
+ |    `-._   `._    /     _.-'    |     PID: 61230
+  `-._    `-._  `-./  _.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |           http://redis.io        
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |                                  
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+      `-._    `-.__.-'    _.-'                                       
+          `-._        _.-'                                           
+              `-.__.-'                                               
+
+61230:M 27 Mar 08:26:43.893 # Server started, Redis version 3.2.8
+61230:M 27 Mar 08:26:43.895 * DB loaded from disk: 0.000 seconds
+61230:M 27 Mar 08:26:43.896 * The server is now ready to accept connections on port 6379

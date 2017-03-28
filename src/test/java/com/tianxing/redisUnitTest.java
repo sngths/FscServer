@@ -29,12 +29,12 @@ public class redisUnitTest {
         Long a = 923429349324L;
         //jedis.zadd("as", a, "ad");
         //jedis.append(new byte[2], new byte[1]);
-        jedis.set("key".getBytes(), "value".getBytes());
+        System.out.println(jedis.set("key".getBytes(), "value".getBytes()));
         jedis.expire("key".getBytes(), 30);
         System.out.println(new String(jedis.get("key".getBytes())));
         HostAndPort hostAndPort = new HostAndPort("asd", 124334);
-        jedis.del("key");
-        jedis.pipelined();
+        System.out.println(jedis.del("key"));
+        //jedis.pipelined();
         BigInteger bigInteger = new BigInteger(64, 64, new Random(123));
 
 

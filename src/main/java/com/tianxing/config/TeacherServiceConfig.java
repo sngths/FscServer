@@ -4,7 +4,7 @@ import com.tianxing.controller.AssignmentController;
 import com.tianxing.controller.FileUploadController;
 import com.tianxing.controller.FileDownloadController;
 import com.tianxing.controller.TestController;
-import com.tianxing.data.AssignmentPool;
+import com.tianxing.data.assignment.AssignmentPool;
 import com.tianxing.data.account.AccountManager;
 import com.tianxing.data.session.SessionManager;
 import org.springframework.context.annotation.Bean;
