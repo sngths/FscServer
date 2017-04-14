@@ -30,4 +30,9 @@ public class AccountServiceImpl implements AccountService {
         }
         return service;
     }
+
+    @Override
+    public void verifyToken(String token) {
+
+    }
 }

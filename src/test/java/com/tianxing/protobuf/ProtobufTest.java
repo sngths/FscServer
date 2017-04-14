@@ -2,7 +2,7 @@ package com.tianxing.protobuf;
 
 import com.google.protobuf.ByteString;
 import com.google.protobuf.InvalidProtocolBufferException;
-import com.tianxing.entity.TestProtobuf.mMessage;
+import com.tianxing.pojo.TestProtobuf.mMessage;
 import org.junit.Test;
 
 /**

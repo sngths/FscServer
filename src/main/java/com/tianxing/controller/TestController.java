@@ -1,6 +1,6 @@
 package com.tianxing.controller;
 
-import com.tianxing.entity.transfer.received.UsernameAndPassword;
+import com.tianxing.pojo.transfer.received.UsernameAndPassword;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;

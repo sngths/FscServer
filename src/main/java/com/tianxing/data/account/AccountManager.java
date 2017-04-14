@@ -1,11 +1,11 @@
 package com.tianxing.data.account;
 
 
-import com.tianxing.entity.info.ClassInfo;
-import com.tianxing.entity.info.StudentInfo;
-import com.tianxing.entity.info.TeacherInfo;
-import com.tianxing.entity.transfer.response.StudentInfoResponse;
-import com.tianxing.entity.transfer.response.TeacherInfoResponse;
+import com.tianxing.pojo.info.ClassInfo;
+import com.tianxing.pojo.info.StudentInfo;
+import com.tianxing.pojo.info.TeacherInfo;
+import com.tianxing.pojo.transfer.response.StudentInfoResponse;
+import com.tianxing.pojo.transfer.response.TeacherInfoResponse;
 
 import java.util.HashMap;
 import java.util.Map;

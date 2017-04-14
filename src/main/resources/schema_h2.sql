@@ -43,7 +43,20 @@ CREATE TABLE teacherClass (
 CREATE INDEX teacherClassIndex ON teacherClass (userID, classID);
 
 
+--作业发布 数据量太大时通过添加SharedID进行分片
+CREATE TABLE assignment(
+  id INT AUTO_INCREMENT,
+  modificationTimestamp BIGINT,
+  creationTimestamp     BIGINT,
 
+  PRIMARY KEY (id)
+);
+
+
+--作业回复 通过作业ID进行分片
+
+
+--作业批阅 通过作业ID进行分片
 
 
 

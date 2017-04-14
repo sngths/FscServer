@@ -1,7 +1,7 @@
 package com.tianxing.controller;
 
 
-import com.tianxing.entity.assignemnt.Image;
+import com.tianxing.pojo.assignemnt.Image;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 

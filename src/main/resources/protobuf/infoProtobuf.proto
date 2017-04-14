@@ -1,2 +1,2 @@
 syntax = "proto3";
-package com.tianxing.entity;
+package com.tianxing.pojo;

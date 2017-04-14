@@ -99,3 +99,9 @@
 61230:M 27 Mar 08:26:43.893 # Server started, Redis version 3.2.8
 61230:M 27 Mar 08:26:43.895 * DB loaded from disk: 0.000 seconds
 61230:M 27 Mar 08:26:43.896 * The server is now ready to accept connections on port 6379
+61230:signal-handler (1490969860) Received SIGTERM scheduling shutdown...
+61230:M 31 Mar 22:17:40.381 # User requested shutdown...
+61230:M 31 Mar 22:17:40.381 * Saving the final RDB snapshot before exiting.
+61230:M 31 Mar 22:17:40.385 * DB saved on disk
+61230:M 31 Mar 22:17:40.385 * Removing the pid file.
+61230:M 31 Mar 22:17:40.386 # Redis is now ready to exit, bye bye...

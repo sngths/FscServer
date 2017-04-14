@@ -1,6 +1,7 @@
 package com.tianxing.fsc;
 
 import com.tianxing.config.DataBaseConfig;
+import com.tianxing.config.FscConfig;
 import com.tianxing.config.TeacherServiceConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,7 +15,7 @@ import org.springframework.context.annotation.Import;
  *
  */
 @SpringBootApplication
-@Import({TeacherServiceConfig.class, DataBaseConfig.class})
+@Import({TeacherServiceConfig.class, DataBaseConfig.class, FscConfig.class})
 
 public class Application extends SpringBootServletInitializer {
 

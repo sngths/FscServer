@@ -2,11 +2,11 @@ package com.tianxing.controller;
 
 import com.tianxing.data.account.AccountManager;
 import com.tianxing.data.session.SessionManager;
-import com.tianxing.entity.transfer.response.LoginInfoResponse;
-import com.tianxing.entity.transfer.response.StudentInfoResponse;
-import com.tianxing.entity.transfer.response.TeacherInfoResponse;
-import com.tianxing.entity.transfer.response.TeacherLoginInfo;
-import com.tianxing.entity.transfer.received.UsernameAndPassword;
+import com.tianxing.pojo.transfer.response.LoginInfoResponse;
+import com.tianxing.pojo.transfer.response.StudentInfoResponse;
+import com.tianxing.pojo.transfer.response.TeacherInfoResponse;
+import com.tianxing.pojo.transfer.response.TeacherLoginInfo;
+import com.tianxing.pojo.transfer.received.UsernameAndPassword;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.session.Session;

@@ -1,10 +1,6 @@
 package com.tianxing.service;
 
-import com.tianxing.data.InfoServiceImpl;
-import com.tianxing.account.AccountServiceImpl;
-import com.tianxing.data.assignment.AssignmentServiceImpl;
-import com.tianxing.session.SessionServiceImpl;
-import com.tianxing.log.LogServiceImpl;
+
 
 import javax.validation.constraints.NotNull;
 import java.util.concurrent.ConcurrentHashMap;
@@ -17,9 +13,11 @@ public class ServiceMediatorImpl implements ServiceMediator {
 
     private ConcurrentHashMap<String, Service> serviceMap;
 
+    private ServiceFactory factory;
 
     public ServiceMediatorImpl(){
         this.serviceMap = new ConcurrentHashMap<>();
+        factory = new DefaultServiceFactory();
     }
 
 
@@ -29,10 +27,12 @@ public class ServiceMediatorImpl implements ServiceMediator {
         if (service.getServiceName() == null || service.getServiceName().equals("")){
             throw new RuntimeException("服务名称不可为空");
         }
-        if (service == null){
-            throw new RuntimeException("服务不可为空");
-        }
         serviceMap.put(service.getServiceName(), service);
+    }
+
+    @Override
+    public void setFactory(ServiceFactory factory) {
+        this.factory = factory;
     }
 
 
@@ -74,25 +74,7 @@ public class ServiceMediatorImpl implements ServiceMediator {
             if (service != null){
                 return service;
             }else {
-                switch (serviceName){
-                    case AccountService.ServiceName:
-                        service = AccountServiceImpl.getInstance(this);
-                        break;
-                    case AssignmentService.ServiceName:
-                        service = AssignmentServiceImpl.getInstance(this);
-                        break;
-                    case InfoService.ServiceName:
-                        service = InfoServiceImpl.getInstance(this);
-                        break;
-                    case LogService.ServiceName:
-                        service = LogServiceImpl.getInstance(this);
-                        break;
-                    case SessionService.ServiceName:
-                        service = SessionServiceImpl.getInstance(this);
-                        break;
-                    default:
-                        throw new RuntimeException("请求服务不存在!");
-                }
+                service = factory.createService(serviceName, this);
                 serviceMap.put(serviceName, service);
                 return service;
             }

@@ -14,6 +14,11 @@ public interface ServiceMediator {
      * 注册一个服务
      * */
     void registerService(Service service);
+
+    /**
+     * 设置服务工厂
+     * */
+    void setFactory(ServiceFactory factory);
     /**
      * 获取相应服务
      * */
