@@ -27,7 +27,7 @@ public final class Testentity {
         getAasaBytes();
   }
   /**
-   * Protobuf type {@code aaa}
+   * Protobuf account {@code aaa}
    */
   public  static final class aaa extends
       com.google.protobuf.GeneratedMessageV3 implements
@@ -267,7 +267,7 @@ public final class Testentity {
       return builder;
     }
     /**
-     * Protobuf type {@code aaa}
+     * Protobuf account {@code aaa}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements

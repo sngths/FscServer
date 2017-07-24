@@ -1,6 +1,7 @@
 package com.tianxing.pojo.info;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -47,5 +48,9 @@ public class TeacherInfo extends UserInfo {
 
     public void setClassIDs(List<String> classIDs) {
         this.classIDs = classIDs;
+    }
+
+    public void setClassID(String... id ){
+        Collections.addAll(classIDs, id);
     }
 }

@@ -12,7 +12,7 @@ import java.util.List;
 public class StudentInfoResponse {
 
     private XmppServerInfo xmppServerInfo;//xmpp通信相关
-    private StudentInfo studentInfo;//老师的个人信息
+    private StudentInfo studentInfo;//学生的个人信息
     private List<GroupInfo> groups;//群组信息
     private List<UserInfo> friends;//好友信息
     private ClassInfo classInfo;//班级信息

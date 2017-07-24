@@ -36,5 +36,5 @@ public interface Module {
     /**
      * 销毁模块
      * */
-    void destory();
+    void destroy();
 }

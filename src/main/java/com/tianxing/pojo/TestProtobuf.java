@@ -86,7 +86,7 @@ public final class TestProtobuf {
         java.lang.String key);
   }
   /**
-   * Protobuf type {@code com.tianxing.pojo.mMessage}
+   * Protobuf account {@code com.tianxing.pojo.mMessage}
    */
   public  static final class mMessage extends
       com.google.protobuf.GeneratedMessageV3 implements
@@ -295,7 +295,7 @@ public final class TestProtobuf {
           com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
         if (desc.getType() != getDescriptor()) {
           throw new java.lang.IllegalArgumentException(
-            "EnumValueDescriptor is not for this type.");
+            "EnumValueDescriptor is not for this account.");
         }
         if (desc.getIndex() == -1) {
           return UNRECOGNIZED;
@@ -678,7 +678,7 @@ public final class TestProtobuf {
       return builder;
     }
     /**
-     * Protobuf type {@code com.tianxing.pojo.mMessage}
+     * Protobuf account {@code com.tianxing.pojo.mMessage}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements

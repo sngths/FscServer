@@ -7,10 +7,6 @@ import com.tianxing.pojo.transfer.response.StudentInfoResponse;
 import com.tianxing.pojo.transfer.response.TeacherInfoResponse;
 import com.tianxing.pojo.transfer.response.TeacherLoginInfo;
 import com.tianxing.pojo.transfer.received.UsernameAndPassword;
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.session.Session;
-import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -99,15 +95,16 @@ public class LoginController {
         //Factory<SecurityManager> factory = new IniSecurityManagerFactory("classpath:shiro.ini");
         //SecurityManager manager = factory.getInstance();
         //SecurityUtils.setSecurityManager(manager);
-        Subject currentUser = SecurityUtils.getSubject();
-        Session session = currentUser.getSession();
-        teacherLoginInfo.setToken(session.getId().toString());
-        if (!currentUser.isAuthenticated()){
-            UsernamePasswordToken token = new UsernamePasswordToken("lenic", "123456");
-            //token.setRememberMe(true);
-            currentUser.login(token);
-        }
-        return teacherLoginInfo;
+        //Subject currentUser = SecurityUtils.getSubject();
+        //Session session = currentUser.getSession();
+        //teacherLoginInfo.setToken(session.getId().toString());
+        //if (!currentUser.isAuthenticated()){
+         //   UsernamePasswordToken token = new UsernamePasswordToken("lenic", "123456");
+        //    //token.setRememberMe(true);
+        //    currentUser.login(token);
+        //}
+        //return teacherLoginInfo;
+        return null;
     }
 
 

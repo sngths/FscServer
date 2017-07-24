@@ -6,6 +6,7 @@ package com.tianxing.pojo.info;
  */
 public class UserInfo {
 
+    private String id = "";
     private String userName = "";
     private String nickName = "";
     private String userIconUrl = "";
@@ -18,6 +19,10 @@ public class UserInfo {
     }
 
 
+    public String getId() {
+        return id;
+    }
+
     public String getUserName() {
         return userName;
     }
@@ -28,6 +33,10 @@ public class UserInfo {
 
     public String getUserIconUrl() {
         return userIconUrl;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public void setUserName(String userName) {

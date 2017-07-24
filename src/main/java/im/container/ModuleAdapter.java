@@ -43,7 +43,7 @@ public class ModuleAdapter implements Module {
     }
 
     @Override
-    public void destory() {
+    public void destroy() {
 
     }
 }

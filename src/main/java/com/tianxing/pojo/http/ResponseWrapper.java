@@ -1,6 +1,7 @@
 package com.tianxing.pojo.http;
 
 
+import com.tianxing.codes.CodesManager;
 import com.tianxing.codes.exception.EncodeException;
 import com.tianxing.pojo.http.response.Response;
 
@@ -9,7 +10,7 @@ import com.tianxing.pojo.http.response.Response;
  *
  */
 public class ResponseWrapper  {
-    private int statusCode;//http状态码
+    private int statusCode = 200;//http状态码
     private String resultMessage;
     private int type;//rawData解码成的对象类型 -1表示结果为空
     private String rawData;//json格式字符串 可进一步解码成对象
@@ -26,20 +27,16 @@ public class ResponseWrapper  {
         this.rawData = rawData;
     }
 
-    /**
-     * 构造时传入需要包装的对象 将其编码成json字符格式后保存
-     * */
-    public ResponseWrapper(Response response, Class<?> type){
-        if (response == null){
+    public <T>ResponseWrapper(T t){
+        if (t == null){
             this.type = -1;
             return;
         }
-        this.type = type.getName().hashCode();
+        this.type = t.getClass().getName().hashCode();
         try {
-            rawData = response.serialize();
+            rawData = CodesManager.encodeAsJsonString(t);
         } catch (EncodeException e) {
             //编码错误 记入日志
-
             this.type = -1;
         }
     }

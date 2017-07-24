@@ -11,11 +11,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * Created by tianxing on 2017/3/21.
  *
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = TeacherServiceConfig.class)
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@ContextConfiguration(classes = TeacherServiceConfig.class)
 public class SpringTest {
 
-    @Test
+    //@Test
     public void test(){
         //Thumbnails.of("").to
     }

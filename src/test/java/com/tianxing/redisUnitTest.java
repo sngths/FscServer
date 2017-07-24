@@ -21,7 +21,7 @@ import java.util.Random;
 public class redisUnitTest {
 
 
-    @Test
+    //@Test
     public void test1() {
         JedisPoolConfig poolConfig = new JedisPoolConfig();
         //poolConfig.s
@@ -52,7 +52,7 @@ public class redisUnitTest {
     }
 
 
-    @Test
+    //@Test
     public void redisConfigTest(){
         RedisConfig config = RedisConfig.builder().buildDefault();
         assert config.getHost().equals("127.0.0.1");

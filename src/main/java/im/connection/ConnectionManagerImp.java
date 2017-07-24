@@ -91,7 +91,7 @@ public class ConnectionManagerImp extends ModuleAdapter implements ConnectionMan
     }
 
     @Override
-    public void destory() {
-        super.destory();
+    public void destroy() {
+        super.destroy();
     }
 }

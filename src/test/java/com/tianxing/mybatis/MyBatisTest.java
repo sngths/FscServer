@@ -19,15 +19,15 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * Created by tianxing on 16/10/18.
  */
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = DataBaseConfig.class)
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@ContextConfiguration(classes = DataBaseConfig.class)
 public class MyBatisTest {
     Logger logger = LoggerFactory.getLogger(MyBatisTest.class);
-    @Autowired
+    //@Autowired
     SqlSessionFactory factory;
 
 
-    @Test
+    //@Test
     public void select() {
         SqlSession session = factory.openSession();
         try {
@@ -48,7 +48,7 @@ public class MyBatisTest {
     /**
      * 创建一个用户
      * */
-    @Test
+    //@Test
     public void insertUser() {
         SqlSession session = factory.openSession();
         try {
@@ -68,7 +68,7 @@ public class MyBatisTest {
     /**
      * 创建一个班级
      * */
-    @Test
+    //@Test
     public void createClass(){
         SqlSession session = factory.openSession();
         try {
@@ -88,7 +88,7 @@ public class MyBatisTest {
     /**
      * 批量插入老师和学生账号
      */
-    @Test
+    //@Test
     public void accountInit() {
         try (SqlSession session = factory.openSession()) {
             UserMapper mapper = session.getMapper(UserMapper.class);
