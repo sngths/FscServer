@@ -1,0 +1,22 @@
+server:
+  port: 8080
+spring:
+  profiles:
+    active: test
+  http:
+    multipart:
+      max-file-size: 30MB #最大文件上传限制
+  application:
+    name: fscServer
+  cloud:
+    config:
+      uri: http://localhost:8080
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false #不向注册中心注册自己
+    fetch-registry: false #只维护实例 不去检索服务
+    #serviceUrl:
+    # defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+

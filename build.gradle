@@ -1,4 +1,9 @@
 buildscript {
+
+    ext {
+        springBootVersion = '1.5.4.RELEASE'
+    }
+
     repositories {
         jcenter()
         mavenCentral()
@@ -8,12 +13,12 @@ buildscript {
         maven { url "https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java" }
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.3.5.RELEASE")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.4.RELEASE")
     }
 }
 
 plugins {
-    id 'org.springframework.boot' version '1.4.3.RELEASE'
+    id 'org.springframework.boot' version '1.5.4.RELEASE'
 }
 
 apply plugin: 'java'
@@ -95,6 +100,12 @@ repositories {
     maven { url "http://repo.spring.io/libs-release" }
 }
 
+dependencyManagement {
+    imports {
+        mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Dalston.SR1'
+    }
+}
+
 configurations {
     providedRuntime
 }
@@ -114,9 +125,18 @@ dependencies {
     compile("org.springframework.boot:spring-boot-devtools")
     compile("org.springframework.boot:spring-boot-configuration-processor")
     //compile('org.springframework.security.oauth:spring-security-oauth2')
-    compile 'org.springframework.security.oauth:spring-security-oauth2:2.1.1.RELEASE'
-
+    compile('org.springframework.security.oauth:spring-security-oauth2:2.1.1.RELEASE')
     //compile 'org.springframework.session:spring-session:1.3.0.RELEASE'
+
+    /**
+     *  Spring Cloud
+     * **/
+    compile("org.springframework.boot:spring-boot-starter-parent:1.5.4.RELEASE")
+    compile("org.springframework.cloud:spring-cloud-starter-config")
+    compile("org.springframework.cloud:spring-cloud-starter-eureka-server")
+
+
+
 
     compile 'com.h2database:h2:1.4.193'
     compile 'org.mybatis:mybatis:3.4.2'
@@ -142,6 +162,9 @@ dependencies {
         exclude group: "org.slf4j"
     }
 
+
+    compile('org.mongodb:mongodb-driver:3.4.2')
+
     compile 'com.lmax:disruptor:3.3.6'
 
     //compile 'org.apache.shiro:shiro-core:1.3.2'
@@ -157,9 +180,8 @@ dependencies {
 
     testCompile("junit:junit")
     testCompile("org.mockito:mockito-core:2.7.19")
-
-
 }
+
 
 task wrapper(type: Wrapper) {
     gradleVersion = '3.3'

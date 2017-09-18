@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+
 /**
  * Created by tianxing on 2017/6/14.
  * OAuth 2.0 资源服务配置
@@ -39,7 +40,11 @@ public class OAuthResourceServer extends ResourceServerConfigurerAdapter {
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
-                .authorizeRequests().anyRequest().authenticated();
+                .authorizeRequests()
+                .antMatchers("/", "/eureka/status").permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .csrf().disable();
     }
 
 

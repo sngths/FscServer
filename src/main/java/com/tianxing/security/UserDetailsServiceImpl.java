@@ -1,11 +1,8 @@
 package com.tianxing.security;
 
-import org.apache.log4j.Logger;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.oauth2.provider.endpoint.AuthorizationEndpoint;
 import org.springframework.stereotype.Component;
 
 /**
@@ -24,7 +21,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         System.out.println(username);
 
         if (username.equals("username")){
-            return new FscUserDetails();
+            return new UserDetailsImpl();
         }else {
             throw  new UsernameNotFoundException("未找到用户:" + username);
         }

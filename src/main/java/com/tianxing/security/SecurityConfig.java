@@ -36,7 +36,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         http.authorizeRequests()
-                .anyRequest().authenticated();
+                .antMatchers("/", "/eureka/status").permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .csrf().disable();
+
         /*http.authorizeRequests()
                 .antMatchers("/", "/home").permitAll()
                 //.anyRequest().authenticated()
@@ -60,8 +64,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         //添加内存认证用户数据
         //auth.inMemoryAuthentication()
-                //.withUser("user1").password("password").roles("USER").and()
-                //.withUser("user2").password("password").roles("USER");
+        //.withUser("user1").password("password").roles("USER").and()
+        //.withUser("user2").password("password").roles("USER");
 
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
 
@@ -83,19 +87,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
 
-
-
     /**
      * 自定义账户认证信息
-     * */
+     */
     @Bean
-    public UserDetailsService userDetailsService(){
+    public UserDetailsService userDetailsService() {
         return new UserDetailsServiceImpl();
     }
 
     /**
      * 密码加密方式
-     * */
+     */
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

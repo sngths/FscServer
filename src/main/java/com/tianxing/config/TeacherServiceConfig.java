@@ -1,9 +1,9 @@
 package com.tianxing.config;
 
-import com.tianxing.controller.AssignmentController;
-import com.tianxing.controller.FileUploadController;
-import com.tianxing.controller.FileDownloadController;
-import com.tianxing.controller.TestController;
+import com.tianxing.webapi.AssignmentController;
+import com.tianxing.webapi.FileUploadController;
+import com.tianxing.webapi.FileDownloadController;
+import com.tianxing.webapi.TestController;
 import com.tianxing.data.assignment.AssignmentPool;
 import com.tianxing.data.account.AccountManager;
 import com.tianxing.data.session.SessionManager;

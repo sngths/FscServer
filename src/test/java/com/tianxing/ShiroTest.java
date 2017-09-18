@@ -1,6 +1,6 @@
 package com.tianxing;
 
-import org.apache.shiro.SecurityUtils;
+/*import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.AuthorizationException;
@@ -10,7 +10,7 @@ import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.util.Assert;
-import org.apache.shiro.util.Factory;
+import org.apache.shiro.util.Factory;*/
 
 import java.util.UUID;
 
@@ -22,7 +22,7 @@ public class ShiroTest {
 
 
     //@UIDTest
-    public void helloWord(){
+    /*public void helloWord(){
         Factory<SecurityManager> factory = new IniSecurityManagerFactory("classpath:shiro.ini");
         SecurityManager manager = factory.getInstance();
         SecurityUtils.setSecurityManager(manager);
@@ -46,6 +46,6 @@ public class ShiroTest {
         }
         Assert.isTrue(subject.isAuthenticated());
         subject.logout();
-    }
+    }*/
 
 }

@@ -1,15 +1,12 @@
 package com.tianxing.config;
 
-import com.tianxing.controller.AccountController;
-import com.tianxing.controller.AssignmentService;
-import com.tianxing.controller.InfoController;
+import com.tianxing.webapi.AccountController;
+import com.tianxing.webapi.v1.AssignmentService;
+import com.tianxing.webapi.InfoController;
 import com.tianxing.components.mediator.ComponentMediator;
 import com.tianxing.components.mediator.ComponentMediatorImpl;
 import com.tianxing.oauth.OAuthAuthorizationServer;
 import com.tianxing.oauth.OAuthResourceServer;
-import com.tianxing.oauth.t.TAuthorizationServerConfig;
-import com.tianxing.oauth.t.TResourceServerConfig;
-import com.tianxing.oauth.t.TSecurityConfig;
 import com.tianxing.security.SecurityConfig;
 import org.apache.catalina.startup.Tomcat;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory;
@@ -18,10 +15,12 @@ import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletCon
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 
 /**
  * Created by tianxing on 2017/4/11.
+ *
  */
 
 @Configuration
@@ -37,6 +36,7 @@ import org.springframework.context.annotation.Configuration;
         //TResourceServerConfig.class,
         //TSecurityConfig.class
         })
+
 public class FscConfig {
 
 
